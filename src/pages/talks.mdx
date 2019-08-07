@@ -1,6 +1,12 @@
 ---
 title: Talks
+banner: './images/sam-angular-connect.jpg'
 ---
+
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
+<Img sizes={props.data.file.childImageSharp.fluid} />
 
 # Talks & Interviews
 
@@ -8,11 +14,15 @@ I **love** teaching people how to code. Reach out to me on [Twitter](http://twit
 
 Here are my previous presentations and interviews:
 
-# 2019
+## 2019
 
-**May 25, 2019** - [ngVikings 2019](https://ngvikings.org/): "STORE Trek: The Voyage to Angular" (with [Mike Ryan](https://twitter.com/MikeRyanDev), future)
+**May 25, 2019** - [ngVikings 2019](https://ngvikings.org/): "STORE Trek: The Voyage to Angular" (with [Mike Ryan](https://twitter.com/MikeRyanDev), [slides](http://samj.im/ngvikings), [video](https://www.youtube.com/watch?v=Nfe20Pq8T7g&list=PLVI0Ut22uwY5n8nKfDZeUb14tNksI4ny4&index=14))
 
-**May 1, 2019** - [ng-conf 2019](https://www.ng-conf.org/sessions/): "Convince Your Boss to Upgrade in 5 Minutes" (future)
+**May 14, 2019** - [DevEd Podcast](https://devedpodcast.com/2019/05/14/dev-ed-012-learning-about-authentication-and-identity/): Learning About Authentication & Identity (with [Kim Maida](http://twitter.com/KimMaida))
+
+**May 7, 2019** - [DevEd Podcast](https://devedpodcast.com/2019/05/07/deved-011-print-books-in-developer-education/): Print Books in Education (with [Bob Martin](http://www.cleancode.com))
+
+**May 1, 2019** - [ng-conf 2019](https://www.ng-conf.org/sessions/): "Convince Your Boss to Upgrade in 5 Minutes" ([slides](http://samj.im/ngconf), [video](https://www.youtube.com/watch?v=VS2qZe6ewZA))
 
 **April 2, 2019** - [Second Career Devs Podcast](https://secondcareerdevs.com/episodes/sam-julien)
 
@@ -65,3 +75,17 @@ Here are my previous presentations and interviews:
 **May 31, 2016** - _IoTReX: Functional Reactive Programming & Hardware_ (short version; [slides](http://slides.com/samjulien/iotrex-donut), [video](https://www.youtube.com/watch?v=rdG8CLMdEeM)) at DonutJS
 
 **April 13, 2016** - _Intro to RxJS and Observables in Angular 2_ ([slides](http://slides.com/samjulien/rxjs)) at Angular PDX Meetup
+
+export const pageQuery = graphql`
+  query {
+    file(relativePath: { eq: "pages/images/sam-angular-connect.jpg" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fluid(maxWidth: 900) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+  }
+`

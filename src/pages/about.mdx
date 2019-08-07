@@ -2,8 +2,27 @@
 title: About Sam Julien
 ---
 
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
+<Img sizes={props.data.file.childImageSharp.fluid} />
+
 # Hi, I'm Sam.
 
 Hi, I'm Sam Julien! I'm a software engineer, technical writer and teacher, and musician in Portland, Oregon. I work in C# and JavaScript (especially Angular) and write for [Auth0](http://www.auth0.com/blog). I'm also a [Google Developer Expert](https://developers.google.com/experts/people/sam-julien) and the main organizer of [Angular Portland](https://www.meetup.com/ngpdxers). When I'm not writing code, I'm learning something new like blacksmithing, woodworking, or welding. Otherwise, I'm on a hike somewhere in the Pacific Northwest. Sometimes I write about tech stuff here, other times I write about what I'm learning and experiencing.
 
 I'm available for technical consulting and speaking/teaching. [Reach out to me on Twitter](http://twitter.com/samjulien) to start the conversation.
+
+export const pageQuery = graphql`
+  query {
+    file(relativePath: { eq: "pages/images/blacksmithing.jpg" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fluid(maxWidth: 900) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+  }
+`
