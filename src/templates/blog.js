@@ -25,7 +25,7 @@ const Blog = ({
     .filter(post => post !== undefined)
 
   return (
-    <Layout noSubscribeForm>
+    <Layout>
       <SEO />
       <Container
         noVerticalPadding

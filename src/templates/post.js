@@ -23,7 +23,7 @@ export default function Post({
   const keywords = site.siteMetadata.keywords
 
   return (
-    <Layout frontmatter={mdx.frontmatter} noSubscribeForm>
+    <Layout frontmatter={mdx.frontmatter}>
       <SEO frontmatter={mdx.frontmatter} isBlogPost />
       <article
         css={css`
@@ -77,6 +77,7 @@ export default function Post({
           )}
           <br />
           <MDXRenderer>{mdx.body}</MDXRenderer>
+          <br />
           <Link
             to="/blog"
             aria-label="Visit blog page"
@@ -85,7 +86,6 @@ export default function Post({
             ← Back to the Blog
           </Link>
         </Container>
-        {/* <SubscribeForm /> */}
       </article>
       <Container noVerticalPadding>
         <Share
@@ -93,7 +93,6 @@ export default function Post({
           title={title}
           twitterHandle={config.twitterHandle}
         />
-        <br />
       </Container>
     </Layout>
   )

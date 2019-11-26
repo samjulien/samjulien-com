@@ -47,7 +47,7 @@ class SignUp extends React.Component {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-        }
+        },
       )
 
       const responseJson = await response.json()
@@ -94,35 +94,33 @@ class SignUp extends React.Component {
               {!successful && (
                 <Form
                   css={css`
-                    display: flex
-                    align-items: flex-end
-                    label:not(:first-of-type),
+                    display: flex;
+                    align-items: flex-end;
                     button {
-                      margin-left: 10px
+                      margin-left: 10px;
                     }
                     .field-error {
-                      display: block
-                      //position: absolute
-                      color: ${theme.colors.red}
-                      font-size: 80%
+                      display: block;
+                      color: ${theme.colors.red};
+                      font-size: 80%;
                     }
                     input,
                     label {
-                      width: 100%
+                      width: 100%;
                     }
                     ${bpMaxSM} {
-                      flex-direction: column
-                      align-items: flex-start
-                      width: auto
+                      flex-direction: column;
+                      align-items: flex-start;
+                      width: auto;
                       label,
                       input {
-                        margin: 5px 0 0 0 !important
-                        width: 100%
-                        display: flex
-                        flex-direction: column
+                        margin: 5px 0 0 0 !important;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
                       }
                       button {
-                        margin: 20px 0 0 0
+                        margin: 20px 0 0 0;
                       }
                     }
                   `}
@@ -130,9 +128,9 @@ class SignUp extends React.Component {
                   <label htmlFor="first_name">
                     <div
                       css={css`
-                        display: flex
-                        justify-content: space-between
-                        align-items: flex-end
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-end;
                       `}
                     >
                       First Name
@@ -153,9 +151,9 @@ class SignUp extends React.Component {
                   <label htmlFor="email">
                     <div
                       css={css`
-                        display: flex
-                        justify-content: space-between
-                        align-items: flex-end
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-end;
                       `}
                     >
                       Email
@@ -183,9 +181,8 @@ class SignUp extends React.Component {
                   </button>
                 </Form>
               )}
-              {submitted && !isSubmitting && (
-                <PostSubmissionMessage response={response} />
-              )}
+              {submitted &&
+                !isSubmitting && <PostSubmissionMessage response={response} />}
               {errorMessage && <div>{errorMessage}</div>}
             </>
           )}

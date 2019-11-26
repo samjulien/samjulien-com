@@ -69,7 +69,7 @@ const Description = styled.p`
 
 export default function Index({ data: { allMdx } }) {
   return (
-    <Layout noSubscribeForm>
+    <Layout>
       <Hero />
       <Container
         css={css`

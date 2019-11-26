@@ -3,7 +3,10 @@ import Layout from '../components/Layout'
 import Container from '../components/Container'
 
 export default ({ children }) => (
-  <Layout noSubscribeForm="true">
-    <Container>{children}</Container>
+  <Layout>
+    <Container>
+      {children}
+      <hr />
+    </Container>
   </Layout>
 )
