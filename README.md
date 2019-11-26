@@ -4,6 +4,8 @@ Hi, I'm Sam. This is the repo for migrating [my site](http://www.samjulien.com) 
 
 This site is built using the [Egghead MDX Starter](https://github.com/eggheadio/gatsby-starter-egghead-blog) for [Gatsby](https://www.gatsbyjs.org/).
 
+You can see the current live status of this site on Netlify [here](https://samjuliencom.netlify.com/).
+
 ## Road to Production
 Here's what I want to have done before officially switching over [samjulien.com](http://www.samjulien.com):
 - Fix query and weird spacing in About page
@@ -13,6 +15,42 @@ Here's what I want to have done before officially switching over [samjulien.com]
 - Modify CK form to have paths for both tech and non-tech subscribers
 - Add content from 2019
 - Update talks page to be current
+- Switch to custom domain!
 
 ## Post Production
+What I want to do post production:
 - Move talks content to AirTable
+
+## References & Inspiration (someday I'll organize these)
+- [GitHub - eggheadio/gatsby-starter-egghead-blog: This is an example Gatsby blog site that we use as a reference at egghead.](https://github.com/eggheadio/gatsby-starter-egghead-blog)
+- [GitHub - kentcdodds/kentcdodds.com: Kents Homepage](https://github.com/kentcdodds/kentcdodds.com)
+- [Why My New Blog Isn’t on Medium – Dan Abramov – Medium](https://medium.com/@dan_abramov/why-my-new-blog-isnt-on-medium-3b280282fbae)
+- [Overreacted — A blog by Dan Abramov](https://overreacted.io/)
+- [GitHub - kyleshevlin/blog: A rewrite of my blog in Gatsby](https://github.com/kyleshevlin/blog)
+- [GitHub - jlengstorf/lengstorf.com: Source for lengstorf.com, Jason Lengstorf’s personal site.](https://github.com/jlengstorf/lengstorf.com)
+- [GitHub - joelhooks/joelhooks-com: playing with static pages](https://github.com/joelhooks/joelhooks-com)
+- [Beyond Static With Gatsby & Apollo (Jason Lengstorf) - YouTube](https://www.youtube.com/watch?v=wNUg1jpj9T0&index=8&list=PLz8Iz-Fnk_eQGt4-VFFCXYuYcuKaw4F07)
+- [gatsby-starter-ghost: Gatsby Starter | GatsbyJS](https://www.gatsbyjs.org/starters/TryGhost/gatsby-starter-ghost/)
+- [Imports and exports in Ghost: Access your content and data - FAQ](https://docs.ghost.org/faq/the-importer/#exports-in-ghost)
+- [ghost-image-downloader](https://github.com/reverentgeek/ghost-image-downloader)
+- [ghost-to-md](https://github.com/hswolff/ghost-to-md)
+- [Download your information – Medium Support](https://help.medium.com/hc/en-us/articles/115004745787-Download-your-information)
+- [GitHub - jamischarles/export-medium-to-gatsby: A CLI to convert your medium exported .html files to gatsby .md files.](https://github.com/jamischarles/export-medium-to-gatsby)
+- [Exporting Medium Posts to Markdown - YouTube](https://www.youtube.com/watch?v=9Uy1db7qsT0)
+
+```bash
+scp -r username@droplet_ip:/path/to/file /path/to/destination
+```
+
+- [A comprehensive guide to images in Gatsby](https://www.orangejellyfish.com/blog/a-comprehensive-guide-to-images-in-gatsby/)
+
+```bash
+*for* file *in* *.md; *do*
+    dir=${file%%.*}
+    mkdir -p “$dir”
+    mv “$file” “$dir”
+    mkdir “$dir”/images
+*done*
+```
+
+- [linux - creating directory from filename and move bash - Stack Overflow](https://stackoverflow.com/questions/13020720/creating-directory-from-filename-and-move-bash)
