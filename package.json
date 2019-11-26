@@ -1,9 +1,9 @@
 {
-  "name": "samjulien-blog",
-  "description": "The repo for my personal blog.",
+  "name": "samjulien-com",
+  "description": "The repo for migrating my site from Ghost to Gatsby.",
   "version": "1.0.0",
   "author": "Sam Julien <sam@samjulien.com> (http://www.samjulien.com)",
-  "repository": "https://github.com/samjulien/samjulien-blog",
+  "repository": "https://github.com/samjulien/samjulien-com",
   "dependencies": {
     "@callstack/react-theme-provider": "^3.0.5",
     "@emotion/core": "^10.0.22",
