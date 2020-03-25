@@ -23,6 +23,7 @@ Here's what I want to have done before officially switching over [samjulien.com]
 ## Nice-to-Have
 What I want to do post production:
 
+- "Uses" page
 - Modify CK form to have paths for both tech and non-tech subscribers
 - Move talks content to AirTable
 - Algolia search
