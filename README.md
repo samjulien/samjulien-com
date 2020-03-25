@@ -2,26 +2,37 @@
 
 Hi, I'm Sam. This is the repo for migrating [my site](http://www.samjulien.com) from Ghost to Gatsby. A good chunk of it was done prior to adding source control and pushing it up to a repo, so I'll try to add references and links as time goes on in case you're starting from scratch.
 
-This site is built using the [Egghead MDX Starter](https://github.com/eggheadio/gatsby-starter-egghead-blog) for [Gatsby](https://www.gatsbyjs.org/).
+This site is built using the [egghead MDX Starter](https://github.com/eggheadio/gatsby-starter-egghead-blog) for [Gatsby](https://www.gatsbyjs.org/), but will shortly be migrated to the more recent [theme version of the same](https://github.com/eggheadio/gatsby-theme-egghead-blog).
 
 You can see the current live status of this site on Netlify [here](https://samjuliencom.netlify.com/).
 
-## Road to Production
+## Minimum Viable Product
 Here's what I want to have done before officially switching over [samjulien.com](http://www.samjulien.com):
-- Fix query and weird spacing in About page
-- Fix static image and about image
-- Combine Index with About page and update copy to include recent projects
-- Add ConvertKit ID and key
-- Modify CK form to have paths for both tech and non-tech subscribers
-- Add content from 2019
+
+- Download last few articles and convert them to MD
+- Migrate to the new egghead theme 
+- Migrate most visited/favorite articles with preserved URLs
+- Basic blog with MDX
+- Basic image support
+- Basic video embed support
+- Index page with basic info and links to certain projects & articles
 - Update talks page to be current
+- Hook up basic ConvertKit
 - Switch to custom domain!
 
-## Post Production
+## Nice-to-Have
 What I want to do post production:
-- Move talks content to AirTable
 
-## References & Inspiration (someday I'll organize these)
+- Modify CK form to have paths for both tech and non-tech subscribers
+- Move talks content to AirTable
+- Algolia search
+
+## Design Inspiration
+- [Vojta](http://vojta.io)
+- [Joel Hooks](https://joelhooks.com/)
+- [Overreacted](https://overreacted.io/)
+
+## References
 - [GitHub - eggheadio/gatsby-starter-egghead-blog: This is an example Gatsby blog site that we use as a reference at egghead.](https://github.com/eggheadio/gatsby-starter-egghead-blog)
 - [GitHub - kentcdodds/kentcdodds.com: Kents Homepage](https://github.com/kentcdodds/kentcdodds.com)
 - [Why My New Blog Isn’t on Medium – Dan Abramov – Medium](https://medium.com/@dan_abramov/why-my-new-blog-isnt-on-medium-3b280282fbae)
@@ -45,12 +56,12 @@ scp -r username@droplet_ip:/path/to/file /path/to/destination
 - [A comprehensive guide to images in Gatsby](https://www.orangejellyfish.com/blog/a-comprehensive-guide-to-images-in-gatsby/)
 
 ```bash
-*for* file *in* *.md; *do*
+for file in *.md; do
     dir=${file%%.*}
-    mkdir -p “$dir”
-    mv “$file” “$dir”
-    mkdir “$dir”/images
-*done*
+    mkdir -p "$dir"
+    mv "$file" "$dir"
+    mkdir "$dir"/images
+done
 ```
 
 - [linux - creating directory from filename and move bash - Stack Overflow](https://stackoverflow.com/questions/13020720/creating-directory-from-filename-and-move-bash)
