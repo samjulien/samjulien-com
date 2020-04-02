@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
+import Video from './Video'
 
 const Egghead = ({ url }) => {
   const plainUrl = url.replace('/embed', '')
