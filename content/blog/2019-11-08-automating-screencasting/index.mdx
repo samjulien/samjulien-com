@@ -1,0 +1,41 @@
+---
+title: 'Automating Screencasting with Keyboard Maestro'
+slug: automating-screencasting
+date: 2019-11-08
+date_updated: 2019-11-08
+tags:
+  - Tags
+---
+
+import YouTube from '../../../src/components/YouTube'
+
+When I was recording the videos for [Upgrading AngularJS](https://www.upgradingangularjs.com/), I was using a Windows 10 laptop. Every time I wanted to shoot a video, I had to remember to hide the taskbar, hide my other windows, open up my editor and browser, and probably other things I'm forgetting.
+
+It was really tedious.
+
+When I switched to Mac when joining Auth0, I started researching how to automate different pieces of my writing, coding, and screencasting process.
+
+Enter [Keyboard Maestro](https://www.keyboardmaestro.com/main/). Keyboard Maestro is an insanely powerful Mac application that lets you automate virtually _anything_ using combinations of **triggers** and **actions**.
+
+Want to open an app when you connect to coffee shop wifi? Done.
+
+Want to hit a single key to launch your entire development environment &mdash; including resizing all of your windows and running terminal commands? Done.
+
+Want to trigger an end-of-day routine at 5 pm every day to force you to stop working? Done.
+
+Keyboard Maestro has become completely essential to my workflow. The biggest help to me has been with recording screencasts. I now have a single keystroke that:
+
+- Hides all applications
+- Launches my editor (Camtasia until recently, but now Screenflow)
+- Opens iTerm and runs a `teach` command, which is an alias to launch Visual Studio Code with special settings (light theme for accessibility, bells and whistles disabled, etc.)
+- Resizes the front window to 1280x720 and center it.
+- Opens Chrome and send it to `localhost:8000` (I can adjust this depending on the project, but that's a good standard)
+- Resizes Chrome to 1280x720 and centers it.
+
+Here's a quick video on how to do it. (Oh, the video also refers to [Karabiner Elements](https://pqrs.org/osx/karabiner/), be sure to grab that.)
+
+<YouTube shortCode="LFu6pM4TYKE" />
+
+If you want to master Keyboard Maestro, there's no better tool than David Sparks' [Keyboard Maestro Field Guide](https://learn.macsparky.com/p/km).
+
+Let me know if this helps!
