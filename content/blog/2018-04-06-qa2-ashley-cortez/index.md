@@ -6,7 +6,8 @@ title: 'QAs Doing Cool Things: Ashley Cortez'
 description: 'We talk to Ashley Cortez'
 published: true
 banner: './images/ashley.png'
-tags: Quietly Ambitious
+tags: 
+- Quietly Ambitious
 ---
 
 Welcome to *QAs Doing Cool Things, Second Edition*. This series features one of the members of my *Super Cool Newsletter for the Quietly Ambitious* with what they're doing and learning. SCNQA (and this series) is meant to be an oasis of useful positivity in the middle of the horrible desert of despair assaulting your eyeballs daily on the news and social media. (What? You're not getting the newsletter!? Sign up in the side bar or on the bottom of this page. DO IT NOW.)

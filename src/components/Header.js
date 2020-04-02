@@ -19,12 +19,13 @@ const Header = ({ dark, bgColor = 'none', siteTitle, headerColor }) => (
       <nav
         css={css`
           width: 100%;
+          font-size: 18px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           color: ${headerColor};
           a {
-            color: ${headerColor ? headerColor : theme.colors.body_color};
+            color: ${headerColor ? headerColor : theme.brand.primary};
           }
           a:hover {
             color: ${headerColor === theme.colors.white
@@ -38,7 +39,7 @@ const Header = ({ dark, bgColor = 'none', siteTitle, headerColor }) => (
         </Link>
         <div
           css={css`
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.25;
             display: flex;
             align-items: center;
@@ -55,15 +56,8 @@ const Header = ({ dark, bgColor = 'none', siteTitle, headerColor }) => (
             }
           `}
         >
-          <Link
-            to="/about"
-            activeClassName="active"
-            aria-label="View about page"
-          >
-            About
-          </Link>
           <Link to="/blog" activeClassName="active" aria-label="View blog page">
-            Blog
+            Writing
           </Link>
           <Link
             to="/talks"

@@ -4,8 +4,10 @@ date: 2019-01-01
 title: 'this post is a ghost'
 author: Sam Julien
 description: 'this post has all of the right fields'
-categories: ['test']
-keywords: ['test']
+category:
+- test
+tags:
+- test
 banner: './images/banner.jpg'
 published: false
 redirects:

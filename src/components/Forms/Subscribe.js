@@ -74,11 +74,11 @@ class SignUp extends React.Component {
         {!successful && (
           <h2
             css={css`
-              margin-bottom: ${rhythm(1)}
-              margin-top: 0
+              margin-bottom: ${rhythm(1)};
+              margin-top: 0;
             `}
           >
-            Join the Newsletter
+            I send emails about tech stuff and being better.
           </h2>
         )}
 
@@ -181,8 +181,9 @@ class SignUp extends React.Component {
                   </button>
                 </Form>
               )}
-              {submitted &&
-                !isSubmitting && <PostSubmissionMessage response={response} />}
+              {submitted && !isSubmitting && (
+                <PostSubmissionMessage response={response} />
+              )}
               {errorMessage && <div>{errorMessage}</div>}
             </>
           )}

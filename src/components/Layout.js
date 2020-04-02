@@ -16,7 +16,12 @@ import Footer from '../components/Footer'
 export const globalStyles = css`
   .button-secondary {
     border-radius: 4px;
+    border: 2px solid ${theme.colors.link_color};
     padding: 12px 12px;
+    background: ${theme.colors.bg_color};
+    margin-top: 5px;
+  }
+  .button-secondary:hover {
     background: ${theme.colors.primary_light};
   }
   ${bpMaxSM} {

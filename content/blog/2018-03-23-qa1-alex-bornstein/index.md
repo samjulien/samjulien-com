@@ -6,7 +6,8 @@ title: 'QAs Doing Cool Things: Alex Bornstein'
 description: 'We talk to Alex Bornstein.'
 published: true
 banner: './images/alex-bornstein.jpeg'
-tags: Quietly Ambitious
+tags: 
+- Quietly Ambitious
 ---
 
 Welcome to the very first edition of my new series, *QAs Doing Cool Things*. This series features one of the members of my **Super Cool Newsletter for the Quietly Ambitious** with what they're up to and what lessons they're learning right now. We've got writers, teachers, moms, software developers, professional musicians, and more on this list, and we've all got *tons* we can learn from each other. (What? You're not on the list!? Sign up in the side bar or on the bottom of this page.)

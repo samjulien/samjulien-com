@@ -9,13 +9,13 @@ const brand = {
   //primary: '#D96E0E',
   //primary: '#9B59B6',
   //primary: '#6420E5',
-  primary: '#5E663A',
+  primary: '#1a8a41',
   //secondary: '#EEF4F2',
   secondary: '#E4D2A4',
 }
 
 const colors = {
-  primary_light: `${lighten(0.55, brand.primary)}`,
+  primary_light: `${lighten(0.6, brand.primary)}`,
   gray: '#D3D3D3',
   black: '#000',
   white: '#fff',
@@ -23,7 +23,7 @@ const colors = {
   bg_color: '#fafafa',
   body_color: 'rgba(0,0,0,0.85)',
   link_color: brand.primary,
-  link_color_hover: `${darken(0.07, brand.primary)}`,
+  link_color_hover: `${darken(0.2, brand.primary)}`,
   red: '#45181F',
   green: '#29B573',
 }

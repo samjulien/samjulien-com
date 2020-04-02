@@ -3,7 +3,8 @@ title: Where to Find My Tech Writing
 slug: where-to-find-my-tech-writing
 date: 2018-12-31T19:28:01.000Z
 date_updated:   2018-12-31T19:28:01.000Z
-tags: Tech
+tags:
+- tech
 ---
 
 Howdy!

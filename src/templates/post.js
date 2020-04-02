@@ -118,7 +118,7 @@ export const pageQuery = graphql`
           }
         }
         slug
-        keywords
+        tags
       }
       body
     }

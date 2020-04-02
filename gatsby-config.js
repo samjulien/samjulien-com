@@ -52,9 +52,10 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
-          default: here('./src/templates/markdown-page.js'),
+          default: here('./src/templates/page.js'),
         },
         extensions: ['.mdx', '.md', '.markdown'],
+        plugins: [`gatsby-remark-images`],
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',

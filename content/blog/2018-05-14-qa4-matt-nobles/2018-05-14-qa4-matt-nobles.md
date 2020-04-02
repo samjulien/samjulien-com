@@ -3,7 +3,8 @@ title: "QAs Doing Cool Things: Matt Nobles"
 slug: qa4-matt-nobles
 date: 2018-05-14T14:46:08.000Z
 date_updated:   2018-05-14T14:46:08.000Z
-tags: Quietly Ambitious
+tags: 
+- Quietly Ambitious
 ---
 
 Hello, beautiful humans! Welcome to *QAs Doing Cool Things, Fourth Edition*. This series features one of the members of my *Super Cool Newsletter for the Quietly Ambitious* with what they're doing and learning. SCNQA (and this series) is meant to be a cheery bright spot of positivity in the middle of the gray cloudy sky that your Social Media Overlords want you stare into hour after hour. (If you're not getting the newsletter, sign up in the side bar or on the bottom of this page. DO IT RIGHT NOW.)

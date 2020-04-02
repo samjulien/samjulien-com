@@ -6,7 +6,8 @@ title: 'QAs Doing Cool Things: Chelsea Torres'
 description: 'We talk to Chelsea Torres'
 published: true
 banner: './images/chelsea.jpg'
-tags: Quietly Ambitious
+tags: 
+- Quietly Ambitious
 ---
 
 Welcome to *QAs Doing Cool Things, Third Edition*. This series features one of the members of my *Super Cool Newsletter for the Quietly Ambitious* with what they're doing and learning. SCNQA (and this series) is meant to be a delightful spot of positivity tea (*positivitea*) in the middle of the doom and gloom your Social Media Timeline wants you to live in. (If you're not getting the newsletter, sign up in the side bar or on the bottom of this page. DO IT RIGHT NOW.)
