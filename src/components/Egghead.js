@@ -17,11 +17,13 @@ const Egghead = ({ url }) => {
         css={css`
           padding: 5px;
           margin-top: 10px;
+          margin-bottom: 10px;
         `}
       >
         <a href={plainUrl} target="blank">
           Watch on egghead
-        </a>
+        </a>{' '}
+        🥚
       </div>
     </>
   )

@@ -94,6 +94,7 @@ export default function Post({
           twitterHandle={config.twitterHandle}
         />
       </Container>
+      <br />
     </Layout>
   )
 }

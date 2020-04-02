@@ -24,6 +24,7 @@ const Video = props => {
             height: 100%;
             border: 0;
           `}
+          title="video"
           {...props}
         ></iframe>
       </div>
