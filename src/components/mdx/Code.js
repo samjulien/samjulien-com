@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import theme from 'prism-react-renderer/themes/oceanicNext'
+import theme from 'prism-react-renderer/themes/nightOwlLight'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
@@ -22,7 +22,10 @@ const Code = ({ codeString, language, ...props }) => {
         theme={theme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={style}>
+          <pre
+            className={className}
+            style={{ ...style, whiteSpace: 'pre-wrap' }}
+          >
             {tokens.map((line, i) => (
               <div {...getLineProps({ line, key: i })}>
                 <span
