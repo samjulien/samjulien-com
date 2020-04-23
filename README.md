@@ -10,7 +10,6 @@ You can see the current live status of this site on Netlify [here](https://samju
 Here's what I want to have done before officially switching over [samjulien.com](http://www.samjulien.com):
 
 - Download last few articles and convert them to MD
-- ~~Migrate to the new egghead theme~~ (not right now, I've already customized too much))
 - Migrate most visited/favorite articles with preserved URLs
 - Basic blog with MDX ✅
 - Basic image support ✅
@@ -20,7 +19,7 @@ Here's what I want to have done before officially switching over [samjulien.com]
 - Update talks page to be current ✅
 - Update dependencies 😬
 - Migrate to double quotes (run Prettier on components)?
-- Hook up basic ConvertKit
+- Hook up basic ConvertKit ✅
 - Switch to custom domain!
 
 ## Nice-to-Have
@@ -29,7 +28,6 @@ What I want to do post production (aka "the fun streams"):
 - "Uses" page
 - Change the font and make the reading experience better (better contrast, etc)
 - Convert a Prism theme into the right JS format for React renderer
-- Modify CK form to have paths for both tech and non-tech subscribers
 - Move talks content to AirTable
 - Algolia search
 

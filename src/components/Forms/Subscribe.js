@@ -6,23 +6,22 @@ import theme from '../../../config/theme'
 import { rhythm } from '../../lib/typography'
 import { bpMaxSM } from '../../lib/breakpoints'
 import Message from '../ConfirmMessage/Message'
-import { PleaseConfirmIllustration } from '../ConfirmMessage/Illustrations'
 
 const FORM_ID = process.env.CONVERTKIT_SIGNUP_FORM
+const API_KEY = process.env.CONVERTKIT_PUBLIC_KEY
 
 const SubscribeSchema = Yup.object().shape({
-  email_address: Yup.string()
+  email: Yup.string()
     .email('Invalid email address')
     .required('Required'),
   first_name: Yup.string(),
 })
 
-const PostSubmissionMessage = ({ response }) => {
+const PostSubmissionMessage = () => {
   return (
     <div>
       <Message
-        illustration={PleaseConfirmIllustration}
-        title={`Great, one last thing...`}
+        title={`Great! One last thing...`}
         body={`I just sent you an email with the confirmation link.
           **Please check your inbox!**`}
       />
@@ -33,13 +32,16 @@ const PostSubmissionMessage = ({ response }) => {
 class SignUp extends React.Component {
   state = {
     submitted: false,
+    success: false,
+    errorMessage: null,
   }
 
   async handleSubmit(values) {
     this.setState({ submitted: true })
+    values.api_key = API_KEY
     try {
       const response = await fetch(
-        `https://app.convertkit.com/forms/${FORM_ID}/subscriptions`,
+        `https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`,
         {
           method: 'post',
           body: JSON.stringify(values, null, 2),
@@ -50,13 +52,13 @@ class SignUp extends React.Component {
         },
       )
 
-      const responseJson = await response.json()
-
-      this.setState({
-        submitted: true,
-        response: responseJson,
-        errorMessage: null,
-      })
+      if (response.status === 200) {
+        this.setState({
+          submitted: true,
+          success: true,
+          errorMessage: null,
+        })
+      }
     } catch (error) {
       this.setState({
         submitted: false,
@@ -66,12 +68,11 @@ class SignUp extends React.Component {
   }
 
   render() {
-    const { submitted, response, errorMessage } = this.state
-    const successful = response && response.status === 'success'
+    const { success, errorMessage } = this.state
 
     return (
       <div>
-        {!successful && (
+        {!success && (
           <h2
             css={css`
               margin-bottom: ${rhythm(1)};
@@ -84,14 +85,14 @@ class SignUp extends React.Component {
 
         <Formik
           initialValues={{
-            email_address: '',
+            email: '',
             first_name: '',
           }}
           validationSchema={SubscribeSchema}
           onSubmit={values => this.handleSubmit(values)}
-          render={({ errors, touched, isSubmitting }) => (
+          render={({ isSubmitting }) => (
             <>
-              {!successful && (
+              {!success && (
                 <Form
                   css={css`
                     display: flex;
@@ -158,7 +159,7 @@ class SignUp extends React.Component {
                     >
                       Email
                       <ErrorMessage
-                        name="email_address"
+                        name="email"
                         component="span"
                         className="field-error"
                       />
@@ -166,7 +167,7 @@ class SignUp extends React.Component {
                     <Field
                       aria-label="your email address"
                       aria-required="true"
-                      name="email_address"
+                      name="email"
                       placeholder="jane@acme.com"
                       type="email"
                     />
@@ -181,9 +182,7 @@ class SignUp extends React.Component {
                   </button>
                 </Form>
               )}
-              {submitted && !isSubmitting && (
-                <PostSubmissionMessage response={response} />
-              )}
+              {success && <PostSubmissionMessage />}
               {errorMessage && <div>{errorMessage}</div>}
             </>
           )}

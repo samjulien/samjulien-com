@@ -13,6 +13,7 @@ export default ({
   fullscreen = false,
   articleTitle,
   articleSlug,
+  children,
 }) => (
   <Center
     css={css`
@@ -22,7 +23,7 @@ export default ({
       }
     `}
   >
-    <div>{illustration}</div>
+    {illustration && <div>{illustration}</div>}
     <h2>{title}</h2>
     {body && <Markdown>{body}</Markdown>}
     {note && (
@@ -46,6 +47,7 @@ export default ({
         <Link to={`/${articleSlug}`}>{articleTitle}</Link>
       </div>
     )}
+    {children}
   </Center>
 )
 
@@ -60,7 +62,7 @@ to, 100% {
 const Center = styled.div`
   width: 100vw;
   max-width: 100% !important;
-  padding: 30px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,7 +70,7 @@ const Center = styled.div`
   text-align: center;
   p {
     margin-top: 10px;
-    max-width: 400px;
+    max-width: 700px;
     line-height: 1.5;
     font-weight: 400;
     strong {

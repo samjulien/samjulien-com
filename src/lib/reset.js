@@ -165,7 +165,6 @@ ul, ol {
   [hidden] {
     display: none !important;
   }
-
 `
 
 export default reset

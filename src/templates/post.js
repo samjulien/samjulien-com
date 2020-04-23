@@ -16,7 +16,6 @@ export default function Post({
   data: { site, mdx },
   pageContext: { next, prev },
 }) {
-  const author = mdx.frontmatter.author || config.author
   const date = mdx.frontmatter.date
   const title = mdx.frontmatter.title
   const banner = mdx.frontmatter.banner
@@ -56,9 +55,7 @@ export default function Post({
               }
             `}
           >
-            {author && <h3>{author}</h3>}
-            {author && <span>—</span>}
-            {date && <h3>{date}</h3>}
+            {date && <h3>First Published: {date}</h3>}
           </div>
           {banner && (
             <div

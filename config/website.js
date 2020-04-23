@@ -3,7 +3,7 @@ module.exports = {
   siteTitle: 'Sam Julien', // Navigation and Site Title
   siteTitleAlt: 'The Home of Developer and Teacher Sam Julien', // Alternative Site title for SEO
   siteTitleShort: 'Sam Julien', // short_name for manifest
-  siteUrl: 'https://your-site.io', // Domain of your site. No trailing slash!
+  siteUrl: 'http://www.samjulien.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: 'images/logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
   siteDescription: 'The Home of Developer and Teacher Sam Julien',
@@ -24,5 +24,5 @@ module.exports = {
   twitter: 'https://twitter.com/samjulien/',
   twitterHandle: '@samjulien',
   github: 'https://github.com/samjulien/',
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/samjulien/',
 }
