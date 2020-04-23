@@ -7,8 +7,8 @@ import { rhythm } from '../../lib/typography'
 import { bpMaxSM } from '../../lib/breakpoints'
 import Message from '../ConfirmMessage/Message'
 
-const FORM_ID = process.env.CONVERTKIT_SIGNUP_FORM
-const API_KEY = process.env.CONVERTKIT_PUBLIC_KEY
+const FORM_ID = process.env.GATSBY_CONVERTKIT_SIGNUP_FORM
+const API_KEY = process.env.GATSBY_CONVERTKIT_PUBLIC_KEY
 
 const SubscribeSchema = Yup.object().shape({
   email: Yup.string()
