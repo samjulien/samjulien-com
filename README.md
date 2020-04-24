@@ -1,32 +1,17 @@
 # SamJulien.com
 
-Hi, I'm Sam. This is the repo for migrating [my site](http://www.samjulien.com) from Ghost to Gatsby. A good chunk of it was done prior to adding source control and pushing it up to a repo, so I'll try to add references and links as time goes on in case you're starting from scratch.
+Hi, I'm Sam. This is the repo [my personal website](http://www.samjulien.com).
 
-This site is built using the [egghead MDX Starter](https://github.com/eggheadio/gatsby-starter-egghead-blog) for [Gatsby](https://www.gatsbyjs.org/), but will shortly be migrated to the more recent [theme version of the same](https://github.com/eggheadio/gatsby-theme-egghead-blog).
+This site was built using the [egghead MDX Starter](https://github.com/eggheadio/gatsby-starter-egghead-blog) for [Gatsby](https://www.gatsbyjs.org/). I'm also using [ConvertKit](https://convertkit.com/) for my email list.
 
-You can see the current live status of this site on Netlify [here](https://samjuliencom.netlify.com/).
+## Backlog
+Now that the site is launched, here's what's on my roadmap:
 
-## Minimum Viable Product
-Here's what I want to have done before officially switching over [samjulien.com](http://www.samjulien.com):
-
-- Download last few articles and convert them to MD
-- Migrate most visited/favorite articles with preserved URLs
-- Basic blog with MDX ✅
-- Basic image support ✅
-- Basic video embed support ✅
-- Make sure syntax highlighting is working ✅
-- Index page with basic info and links to recent projects & important articles ✅
-- Update talks page to be current ✅
+- Download last few articles from the old Ghost site and convert them to MD
 - Update dependencies 😬
 - Migrate to double quotes (run Prettier on components)?
-- Hook up basic ConvertKit ✅
-- Switch to custom domain!
-
-## Nice-to-Have
-What I want to do post production (aka "the fun streams"):
-
-- "Uses" page
-- Change the font and make the reading experience better (better contrast, etc)
+- "Uses" page for useful stuff
+- Tags
 - Convert a Prism theme into the right JS format for React renderer
 - Move talks content to AirTable
 - Algolia search
@@ -36,7 +21,9 @@ What I want to do post production (aka "the fun streams"):
 - [Joel Hooks](https://joelhooks.com/)
 - [Overreacted](https://overreacted.io/)
 
-## References
+## Development References
+I migrated this site from a very old Ghost instance. Here are some resources I found helpful in the process:
+
 - [GitHub - eggheadio/gatsby-starter-egghead-blog: This is an example Gatsby blog site that we use as a reference at egghead.](https://github.com/eggheadio/gatsby-starter-egghead-blog)
 - [GitHub - kentcdodds/kentcdodds.com: Kents Homepage](https://github.com/kentcdodds/kentcdodds.com)
 - [Why My New Blog Isn’t on Medium – Dan Abramov – Medium](https://medium.com/@dan_abramov/why-my-new-blog-isnt-on-medium-3b280282fbae)
