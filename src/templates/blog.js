@@ -100,7 +100,7 @@ const Blog = ({
                 {post.frontmatter.title}
               </Link>
             </h2>
-            <small>{post.frontmatter.date}</small>
+            <small>First Published: {post.frontmatter.date}</small>
             <p
               css={css`
                 margin-top: 10px;
@@ -112,7 +112,7 @@ const Blog = ({
               to={`/${post.fields.slug}`}
               aria-label={`view "${post.frontmatter.title}" article`}
             >
-              Read Article →
+              Read →
             </Link>
           </div>
         ))}
