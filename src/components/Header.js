@@ -56,7 +56,11 @@ const Header = ({ dark, bgColor = 'none', siteTitle, headerColor }) => (
             }
           `}
         >
-          <Link to="/blog" activeClassName="active" aria-label="View blog page">
+          <Link
+            to="/writing"
+            activeClassName="active"
+            aria-label="View writing"
+          >
             Writing
           </Link>
           <Link

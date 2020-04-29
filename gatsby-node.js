@@ -39,7 +39,7 @@ exports.createPages = ({ actions, graphql }) =>
       allMdx(
         filter: {
           frontmatter: { published: { ne: false } }
-          fileAbsolutePath: { regex: "//content/blog//" }
+          fileAbsolutePath: { regex: "//content/writing//" }
         }
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {
@@ -74,7 +74,7 @@ exports.createPages = ({ actions, graphql }) =>
     const { edges } = data.allMdx
     const { createRedirect, createPage } = actions
     createPosts(createPage, createRedirect, edges)
-    createPaginatedPages(actions.createPage, edges, '/blog', {
+    createPaginatedPages(actions.createPage, edges, '/writing', {
       categories: [],
     })
     return null
@@ -107,7 +107,7 @@ function createPaginatedPages(createPage, edges, pathPrefix, context) {
 
     createPage({
       path: index > 0 ? `${pathPrefix}/${index}` : `${pathPrefix}`,
-      component: path.resolve(`src/templates/blog.js`),
+      component: path.resolve(`src/templates/writing.js`),
       context: {
         pagination: {
           page,
@@ -132,7 +132,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
     const slug =
       parent.sourceInstanceName === 'legacy'
-        ? `blog/${node.frontmatter.date
+        ? `writing/${node.frontmatter.date
             .split('T')[0]
             .replace(/-/g, '/')}/${titleSlugged}`
         : node.frontmatter.slug || titleSlugged

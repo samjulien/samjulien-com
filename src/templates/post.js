@@ -76,11 +76,11 @@ export default function Post({
           <MDXRenderer>{mdx.body}</MDXRenderer>
           <br />
           <Link
-            to="/blog"
-            aria-label="Visit blog page"
+            to="/writing"
+            aria-label="Visit bwriting"
             className="button-secondary"
           >
-            ← Back to the Blog
+            ← Back to writing
           </Link>
         </Container>
       </article>

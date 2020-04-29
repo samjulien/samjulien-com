@@ -11,7 +11,7 @@ export default () => (
         title="Thanks for subscribing! 🎉"
         body="You'll hear from me soon."
       >
-        <Link to="/" aria-label="Visit blog page" className="button-secondary">
+        <Link to="/" aria-label="Visit home page" className="button-secondary">
           Take me home!
         </Link>
       </Message>

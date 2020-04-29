@@ -154,7 +154,7 @@ export const pageQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         frontmatter: { published: { ne: false } }
-        fileAbsolutePath: { regex: "//content/blog//" }
+        fileAbsolutePath: { regex: "//content/writing//" }
       }
     ) {
       edges {

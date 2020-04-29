@@ -11,7 +11,7 @@ export default () => (
         title="Thanks for your feedback! 🎉"
         body="I'm happy to get to know you a bit better."
       >
-        <Link to="/" aria-label="Visit blog page" className="button-secondary">
+        <Link to="/" aria-label="Visit home page" className="button-secondary">
           Take me home!
         </Link>
       </Message>

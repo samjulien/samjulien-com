@@ -14,6 +14,7 @@ Now that the site is launched, here's what's on my roadmap:
 - Tags
 - Convert a Prism theme into the right JS format for React renderer
 - Move talks content to AirTable
+- Migrate "blog" to "writing" ✅
 - Algolia search
 
 ## Design Inspiration
