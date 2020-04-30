@@ -27,7 +27,8 @@ export const globalStyles = css`
   ${bpMaxSM} {
     p,
     em,
-    strong {
+    ul,
+    ol {
       font-size: 90%;
     }
     h1 {
@@ -47,8 +48,10 @@ export const globalStyles = css`
     font-family: ${fonts.regularItalic};
   }
   strong {
+    font-family: ${fonts.bold};
     em {
-      font-family: ${fonts.semiboldItalic};
+      font-family: ${fonts.boldItalic};
+      font-size: 100%;
     }
   }
   input {

@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import SEO from 'components/SEO'
 import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 import Container from 'components/Container'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
@@ -12,11 +13,28 @@ import Share from '../components/Share'
 import config from '../../config/website'
 import { bpMaxSM } from '../lib/breakpoints'
 
+const DateText = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: ${props => (props.showDateUpdated ? '10px' : '20px')};
+  h3,
+  span {
+    text-align: center;
+    font-size: 15px;
+    opacity: 0.6;
+    font-family: ${fonts.regular}, sans-serif;
+    font-weight: normal;
+    margin: 0 5px;
+  }
+`
+
 export default function Post({
   data: { site, mdx },
   pageContext: { next, prev },
 }) {
   const date = mdx.frontmatter.date
+  const date_updated = mdx.frontmatter.date_updated
+  const showDateUpdated = date_updated && date_updated > date
   const title = mdx.frontmatter.title
   const banner = mdx.frontmatter.banner
   const keywords = site.siteMetadata.keywords
@@ -39,24 +57,14 @@ export default function Post({
           >
             {title}
           </h1>
-          <div
-            css={css`
-              display: flex;
-              justify-content: center;
-              margin-bottom: 20px;
-              h3,
-              span {
-                text-align: center;
-                font-size: 15px;
-                opacity: 0.6;
-                font-family: ${fonts.regular}, sans-serif;
-                font-weight: normal;
-                margin: 0 5px;
-              }
-            `}
-          >
+          <DateText showDateUpdated={showDateUpdated}>
             {date && <h3>First Published: {date}</h3>}
-          </div>
+          </DateText>
+          {showDateUpdated && (
+            <DateText>
+              <h3>Last Updated: {date_updated}</h3>
+            </DateText>
+          )}
           {banner && (
             <div
               css={css`
@@ -107,6 +115,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        date_updated(formatString: "MMMM DD, YYYY")
         author
         banner {
           childImageSharp {
