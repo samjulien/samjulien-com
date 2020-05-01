@@ -17,6 +17,7 @@ const brand = {
 const colors = {
   primary_light: `${lighten(0.6, brand.primary)}`,
   gray: '#D3D3D3',
+  lightgray: '#E3E4E3',
   black: '#000',
   white: '#fff',
   lightblue: '#6E8794',

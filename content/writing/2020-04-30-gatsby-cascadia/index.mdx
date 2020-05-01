@@ -1,0 +1,56 @@
+---
+title: Use Cascadia Code with Gatsby
+slug: gatsby-cascadia
+date: 2020-05-01T15:54:29.000Z
+date_updated: 2020-05-01T15:54:29.000Z
+published: true
+tags:
+  - Tech
+---
+
+I wasn't really enjoying the boring monospace font for my code blocks on this site, so I decided to use [Cascadia Code](https://github.com/microsoft/cascadia-code) from Microsoft. I love it! It looks so much better!
+
+Here's how to do it using [Typography.js](https://www.gatsbyjs.org/docs/typography-js/) in Gatsby. (That link also covers how to set up Typography; I won't be doing that here.)
+
+First, go to [Cascadia's releases page](https://github.com/microsoft/cascadia-code/releases) and download the font (if you don't like the ligatures, download Cascadia Code Mono). It's a TTF (TrueType font).
+
+Copy the font file into wherever you're keeping your fonts. For me, it's in a `fonts` folder. Then, wherever you're putting your font CSS information (mine is `fonts.css` inside of that fonts folder), add the font family and refer to the file:
+
+```css
+@font-face {
+  font-family: 'Cascadia Code';
+  font-style: normal;
+  font-weight: 400;
+  src: url('Cascadia.ttf') format('truetype');
+  font-display: fallback;
+}
+```
+
+In your `typography.js` file, add Cascadia to your fonts object. Mine looks like this now:
+
+```js
+export const fonts = {
+  regular: 'Inter UI Regular',
+  regularItalic: 'Inter UI Regular Italic',
+  semibold: 'Inter UI Semibold',
+  semiboldItalic: 'Inter UI Semibold Italic',
+  bold: 'Inter UI Bold',
+  boldItalic: 'Inter UI Bold Italic',
+  monospace: 'Cascadia Code',
+}
+```
+
+Be sure the string you give it matches the string you set for `font-family` exactly.
+
+Voila! Now you can just set up your `pre` and `code` tags to use Cascadia for code in your articles! For example:
+
+```css
+code {
+  font-size: 1.05rem;
+  line-height: 1rem;
+  background: lightgray;
+  font-family: ${fonts.monospace};
+}
+```
+
+Enjoy your beautiful new code blocks!

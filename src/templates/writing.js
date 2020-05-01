@@ -104,6 +104,7 @@ const Blog = ({
             <p
               css={css`
                 margin-top: 10px;
+                text-align: justify;
               `}
             >
               {post.excerpt}
@@ -159,7 +160,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 300)
+          excerpt(pruneLength: 350)
           id
           fields {
             title

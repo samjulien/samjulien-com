@@ -87,7 +87,7 @@ export const globalStyles = css`
   code {
     font-size: 1.05rem;
     line-height: 1rem;
-    background: lightgray;
+    background: ${theme.colors.lightgray};
     font-family: ${fonts.monospace};
   }
   pre {
