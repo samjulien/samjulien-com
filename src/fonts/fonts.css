@@ -40,3 +40,10 @@
   src: url('Inter-UI-BoldItalic.woff') format('woff');
   font-display: fallback;
 }
+@font-face {
+  font-family: 'Cascadia Code';
+  font-style: normal;
+  font-weight: 400;
+  src: url('Cascadia.ttf') format('truetype');
+  font-display: fallback;
+}

@@ -84,8 +84,15 @@ export const globalStyles = css`
       transition: ${theme.transition.ease};
     }
   }
+  code {
+    font-size: 1.05rem;
+    line-height: 1rem;
+    background: lightgray;
+    font-family: ${fonts.monospace};
+  }
   pre {
     border-radius: 4px;
+    font-family: ${fonts.monospace};
     font-size: 16px;
     padding: 10px;
     overflow-x: auto;

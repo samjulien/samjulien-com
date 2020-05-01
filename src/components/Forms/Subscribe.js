@@ -73,14 +73,21 @@ class SignUp extends React.Component {
     return (
       <div>
         {!success && (
-          <h2
-            css={css`
-              margin-bottom: ${rhythm(1)};
-              margin-top: 0;
-            `}
-          >
-            I send emails about tech stuff and being better.
-          </h2>
+          <>
+            <h2
+              css={css`
+                margin-bottom: ${rhythm(1)};
+                margin-top: 0;
+              `}
+            >
+              I send emails about getting better at coding and life.
+            </h2>
+            <p>
+              I write about becoming the best version of myself professionally
+              and personally and helping others do the same. Want the goods
+              before everyone else? Sign up below. <span role="img" aria-label="point down emoji">👇</span>
+            </p>
+          </>
         )}
 
         <Formik
@@ -145,7 +152,7 @@ class SignUp extends React.Component {
                       aria-label="your first name"
                       aria-required="false"
                       name="first_name"
-                      placeholder="Jane"
+                      placeholder="Garak"
                       type="text"
                     />
                   </label>
@@ -168,7 +175,7 @@ class SignUp extends React.Component {
                       aria-label="your email address"
                       aria-required="true"
                       name="email"
-                      placeholder="jane@acme.com"
+                      placeholder="garak@ds9.station"
                       type="email"
                     />
                   </label>

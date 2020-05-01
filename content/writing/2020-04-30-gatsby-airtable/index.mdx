@@ -1,0 +1,104 @@
+---
+title: Using Airtable with Gatsby to List Talks
+slug: gatsby-airtable
+date: 2020-04-30T15:54:29.000Z
+date_updated: 2020-04-30T15:54:29.000Z
+published: true
+tags:
+  - Tech
+---
+
+import YouTube from '../../../src/components/YouTube'
+
+Historically, all of my [previous talks and podcasts](http://www.samjulien.com/talks) have been a big blob of markdown that I manually edit and add to. It's been that way for years. With the advent of [Airtable](https://airtable.com/), this can get a lot easier. I'm migrating all of my data over there so I can make the Talks page read in that data at build time. Airtable also allows me to add new talks or podcasts via their website, their iOS apps, or the API. It's awesome!
+
+Here's the first stream adding this new feature:
+
+<YouTube shortCode="rxrcFYZ-nHQ" />
+
+I'm using `gatsby-source-airtable` for this (which you can read about [here](https://www.gatsbyjs.org/packages/gatsby-source-airtable/));
+
+To get started, run this command in your Gatsby repo:
+
+```bash
+npm install --save gatsby-source-airtable
+```
+
+Then, add API key, base ID, and table name to your `.env` file and update your `plugins` array in `gatsby.config.js`:
+
+```js
+plugins: [
+  {
+    resolve: 'gatsby-source-airtable',
+    options: {
+      apiKey: process.env.AIRTABLE_API_KEY,
+      tables: [
+        {
+          baseId: process.env.AIRTABLE_BASE,
+          tableName: process.env.AIRTABLE_TABLE_NAME,
+        },
+      ],
+    },
+  },
+]
+```
+
+That's it! You can then write a query in one of your pages or components like this:
+
+```graphql
+{
+  allAirtable(
+    filter: {
+      table: { eq: "YOUR_TABLE_NAME" }
+      data: { Field_1: { eq: "YOUR_VALUE" } }
+    }
+  ) {
+    edges {
+      node {
+        data {
+          Field_1
+        }
+      }
+    }
+  }
+}
+```
+
+I decided to build a `Talks` component and use a [static query](https://www.gatsbyjs.org/docs/static-query/). I'm also grouping the talks by year (this is a bonus Gatsby provides) and formatting the dates in GraphQL:
+
+```jsx
+const data = useStaticQuery(graphql`
+  query AirtableQuery {
+    allAirtable(sort: { fields: data___Start_Date, order: DESC }) {
+      group(field: data___Year) {
+        fieldValue
+        nodes {
+          data {
+            Content
+            End_Date(formatString: "MM/DD/YYYY")
+            Event_Link
+            Event_Name
+            Location
+            Slides
+            Start_Date(formatString: "MM/DD/YYYY")
+            Topic
+            Type
+            Year
+          }
+        }
+      }
+    }
+  }
+`)
+```
+
+My only issue is that Gatsby can't yet sort groups. Apparently this is a feature request that [comes up every so often on GitHub](https://github.com/gatsbyjs/gatsby/issues/17690). In the meantime, I just sort them myself:
+
+```js
+const { group } = data.allAirtable
+const sortedGroups = group.sort((groupA, groupB) =>
+  groupA.fieldValue > groupB.fieldVaue ? 1 : -1,
+)
+```
+
+I'm still tinkering with the UI and adding all of the data, so the changes aren't yet live. Stay tuned!
