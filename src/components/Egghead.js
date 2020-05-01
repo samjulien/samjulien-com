@@ -12,19 +12,22 @@ const Egghead = ({ url }) => {
         gesture="media"
         allow="encrypted-media"
         allowFullScreen
-      />
-      <div
-        css={css`
-          padding: 5px;
-          margin-top: 10px;
-          margin-bottom: 10px;
-        `}
       >
-        <a href={plainUrl} target="blank">
-          Watch on egghead
-        </a>{' '}
-        🥚
-      </div>
+        <div
+          css={css`
+            padding: 5px;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-align: right;
+          `}
+        >
+          <a href={plainUrl} target="blank">
+            Watch on egghead
+          </a>{' '}
+          🥚
+        </div>
+      </Video>
     </>
   )
 }

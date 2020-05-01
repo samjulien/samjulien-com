@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
-const Video = props => {
+const EditorEmbed = ({ url }) => {
   return (
     <div
       css={css`
@@ -24,13 +24,12 @@ const Video = props => {
             height: 100%;
             border: 0;
           `}
-          title="video"
-          {...props}
+          title="code embed"
+          src={url}
         ></iframe>
       </div>
-      {props.children}
     </div>
   )
 }
 
-export default Video
+export default EditorEmbed
