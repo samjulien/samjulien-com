@@ -74,7 +74,6 @@ module.exports = {
             options: {
               backgroundColor: '#fafafa',
               maxWidth: 1035,
-              sizeByPixelDensity: true,
             },
           },
         ],
@@ -101,6 +100,13 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/lib/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-91616509-1',
+        head: true,
       },
     },
     'gatsby-plugin-offline',
