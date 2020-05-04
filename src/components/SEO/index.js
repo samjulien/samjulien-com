@@ -51,6 +51,20 @@ const SEO = ({ postData, frontmatter = {}, postImage, isBlogPost }) => (
             <meta name="description" content={description} />
             <meta name="image" content={image} />
 
+            {/* Google Analytics */}
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=UA-91616509-1"
+            ></script>
+
+            {/* eslint-disable */}
+            <script>
+              window.dataLayer = window.dataLayer || []; function gtag()
+              {dataLayer.push(arguments)}; gtag('js', new Date());
+              gtag('config', 'UA-91616509-1');
+            </script>
+            {/* eslint-enable */}
+
             {/* OpenGraph tags */}
             <meta property="og:url" content={url} />
             {isBlogPost ? <meta property="og:type" content="article" /> : null}
