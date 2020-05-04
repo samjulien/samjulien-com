@@ -19,7 +19,7 @@ const Egghead = ({ url }) => {
             margin-top: 0px;
             margin-bottom: 10px;
             font-size: 0.9rem;
-            text-align: right;
+            text-align: left;
           `}
         >
           <a href={plainUrl} target="blank">

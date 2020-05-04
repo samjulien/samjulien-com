@@ -83,9 +83,12 @@ class SignUp extends React.Component {
               I send emails about getting better at coding and life.
             </h2>
             <p>
-              I write about becoming the best version of myself professionally
-              and personally and helping others do the same. Want the goods
-              before everyone else? Sign up below. <span role="img" aria-label="point down emoji">👇</span>
+              I'm on path to become a better human and developer and I want to
+              bring as many friends with me as possible. Want to join me? Sign
+              up below.{' '}
+              <span role="img" aria-label="point down emoji">
+                👇
+              </span>
             </p>
           </>
         )}
