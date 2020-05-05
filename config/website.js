@@ -5,7 +5,7 @@ module.exports = {
   siteTitleShort: 'Sam Julien', // short_name for manifest
   siteUrl: 'http://www.samjulien.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
-  siteLogo: 'images/logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
+  siteLogo: 'images/ogimage-logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
   siteDescription: 'The Home of Developer and Teacher Sam Julien',
   author: 'Sam Julien', // Author for schemaORGJSONLD
   organization: 'Sam Julien',

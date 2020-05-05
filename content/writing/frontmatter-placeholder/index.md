@@ -4,6 +4,7 @@ date: 2019-01-01
 title: 'this post is a ghost'
 author: Sam Julien
 description: 'this post has all of the right fields'
+ogimage: './images/og-imagelogo.png'
 category:
 - test
 tags:

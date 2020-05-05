@@ -32,16 +32,14 @@ export default function Post({
   data: { site, mdx },
   pageContext: { next, prev },
 }) {
-  const date = mdx.frontmatter.date
-  const date_updated = mdx.frontmatter.date_updated
-  const showDateUpdated = date_updated && date_updated > date
-  const title = mdx.frontmatter.title
-  const banner = mdx.frontmatter.banner
+  const { date, title, banner, date_updated, ogimage } = mdx.frontmatter
   const keywords = site.siteMetadata.keywords
+  const showDateUpdated = date_updated && date_updated > date
+  const ogImagePath = ogimage && ogimage.childImageSharp.fixed.src
 
   return (
     <Layout frontmatter={mdx.frontmatter}>
-      <SEO frontmatter={mdx.frontmatter} isBlogPost />
+      <SEO frontmatter={mdx.frontmatter} isBlogPost postImage={ogImagePath} />
       <article
         css={css`
           width: 100%;
@@ -117,6 +115,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM Do, YYYY")
         date_updated(formatString: "MMMM Do, YYYY")
         author
+        ogimage {
+          childImageSharp {
+            fixed(height: 630, width: 1200) {
+              src
+            }
+          }
+        }
         banner {
           childImageSharp {
             fluid(maxWidth: 900) {

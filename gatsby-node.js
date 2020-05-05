@@ -180,6 +180,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
 
     createNodeField({
+      name: 'ogimage',
+      node,
+      ogimage: node.frontmatter.ogimage,
+    })
+
+    createNodeField({
       name: 'categories',
       node,
       value: node.frontmatter.categories || [],
