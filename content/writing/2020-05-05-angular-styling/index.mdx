@@ -1,0 +1,28 @@
+---
+title: Scoped & Global Styles in Angular
+slug: angular-styling
+date: 2020-05-05T10:52:51.000Z
+date_updated: 2020-05-05T10:52:51.000Z
+published: true
+tags:
+  - Tech
+---
+
+import Egghead from '../../../src/components/Egghead'
+import EditorEmbed from '../../../src/components/EditorEmbed'
+
+This week in the [Angular Basics egghead collection](https://egghead.io/playlists/angular-basics-888f) we're talking about styling.
+
+In other frameworks, [CSS modules](https://github.com/css-modules/css-modules) and [CSS-in-JS](https://cssinjs.org/) (sometimes referred to as JSS) are both quite popular. I've actually become a huge fan of using [styled components](https://emotion.sh/docs/styled) in React (I'm using them with Emotion on this site!).
+
+One of the reasons for this is the ability to add scoped styling to your app. This prevents inadvertently overwriting styles due to a shared global class somewhere. You won't hear much about these options in the Angular community, though, and that's because Angular comes with a scoped CSS option right out of the box. In this lesson, I'll show you how this works.
+
+<Egghead url="https://egghead.io/lessons/angular-use-scoped-component-styles-in-angular/embed?pl=angular-basics-888f" />
+
+Even though the default scoped styles in Angular components are really useful, sometimes we do want to apply styles across the whole app. We may also want to make classes available globally. Luckily, Angular provides a nice way to do this in the `styles.css` file.
+
+<Egghead url="https://egghead.io/lessons/angular-add-global-styles-in-angular/embed?pl=angular-basics-888f" />
+
+Here's the code for both of these lessons:
+
+<EditorEmbed url="https://stackblitz.com/edit/egghead-angular-styling?embed=1&file=src/styles.css&view=editor" />
