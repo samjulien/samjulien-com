@@ -29,9 +29,9 @@ const RecentArticles = () => {
   return (
     <ul>
       {data.allMdx.edges.map(edge => (
-        <li>
+        <li key={edge.node.id}>
           {edge.node.fields.date} -{' '}
-          <Link to={edge.node.fields.slug}>{edge.node.fields.title}</Link>
+          <Link to={`/${edge.node.fields.slug}`}>{edge.node.fields.title}</Link>
         </li>
       ))}
     </ul>

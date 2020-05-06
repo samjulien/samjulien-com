@@ -6,13 +6,7 @@ const Egghead = ({ url }) => {
   const plainUrl = url.replace('/embed', '')
   return (
     <>
-      <Video
-        src={url}
-        frameBorder="0"
-        gesture="media"
-        allow="encrypted-media"
-        allowFullScreen
-      >
+      <Video src={url} frameBorder="0" allow="autoplay" allowFullScreen>
         <div
           css={css`
             padding: 5px;
