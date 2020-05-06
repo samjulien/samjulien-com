@@ -112,6 +112,7 @@ export const pageQuery = graphql`
     mdx(fields: { id: { eq: $id } }) {
       frontmatter {
         title
+        description
         date(formatString: "MMMM Do, YYYY")
         date_updated(formatString: "MMMM Do, YYYY")
         author
