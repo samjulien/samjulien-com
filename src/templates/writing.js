@@ -62,7 +62,7 @@ const Blog = ({
               .gatsby-image-wrapper {
               }
               background: white;
-              padding: 40px;
+              padding: 30px;
               ${bpMaxSM} {
                 padding: 20px;
               }
@@ -89,7 +89,7 @@ const Blog = ({
             )}
             <h2
               css={css`
-                margin-top: 30px;
+                margin-top: 20px;
                 margin-bottom: 10px;
               `}
             >
