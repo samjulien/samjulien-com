@@ -165,7 +165,7 @@ function Layout({
             <noscript>This site runs best with JavaScript enabled.</noscript>
           </Helmet>
           <Header
-            siteTitle={site.siteMetadata.title}
+            siteTitle={site.siteMetadata.siteTitleShort}
             dark={dark}
             bgColor={headerBg}
             headerColor={headerColor}
@@ -193,6 +193,7 @@ export default function LayoutWithSiteData(props) {
           site {
             siteMetadata {
               title
+              siteTitleShort
               description
               author {
                 name

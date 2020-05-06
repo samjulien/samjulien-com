@@ -12,9 +12,10 @@ Now that the site is launched, here's what's on my roadmap:
 - Migrate to double quotes (run Prettier on components)?
 - "Uses" page for useful stuff
 - Tags
-- Convert a Prism theme into the right JS format for React renderer
+- ~~Convert a Prism theme into the right JS format for React renderer~~
 - Move talks content to AirTable
 - Migrate "blog" to "writing" ✅
+- Add open graph images for Twitter ✅
 - Algolia search
 
 ## Design Inspiration

@@ -1,12 +1,14 @@
 module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/blog your pathPrefix should be "blog"
-  siteTitle: 'Sam Julien', // Navigation and Site Title
-  siteTitleAlt: 'The Home of Developer and Teacher Sam Julien', // Alternative Site title for SEO
+  siteTitle: 'Sam Julien: JavaScript Teacher and Your Biggest Fan', // Navigation and Site Title
+  siteTitleAlt:
+    'Sam Julien: Full Stack JavaScript Teacher and Your Biggest Fan', // Alternative Site title for SEO
   siteTitleShort: 'Sam Julien', // short_name for manifest
   siteUrl: 'http://www.samjulien.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: 'images/ogimage-logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
-  siteDescription: 'The Home of Developer and Teacher Sam Julien',
+  siteDescription:
+    'Sam Julien is a JavaScript developer and teacher. He loves helping people get their first web development job using Node, Angular, Gatsby, and React.',
   author: 'Sam Julien', // Author for schemaORGJSONLD
   organization: 'Sam Julien',
 

@@ -68,7 +68,7 @@ const Header = ({ dark, bgColor = 'none', siteTitle, headerColor }) => (
             activeClassName="active"
             aria-label="View about page"
           >
-            Talks
+            JavaScript Talks & Interviews
           </Link>
         </div>
       </nav>

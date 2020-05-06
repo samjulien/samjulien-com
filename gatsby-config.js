@@ -12,9 +12,22 @@ module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl + pathPrefix,
     title: config.siteTitle,
+    siteTitleShort: config.siteTitleShort,
     twitterHandle: config.twitterHandle,
     description: config.siteDescription,
-    keywords: ['Software Developer'],
+    keywords: [
+      'web development',
+      'react',
+      'angular',
+      'javascript',
+      'angular video course',
+      'ngUpgrade',
+      'angularjs',
+      'screencast',
+      'screencasting',
+      'gatsby',
+      'gatsbyjs',
+    ],
     canonicalUrl: config.siteUrl,
     image: config.siteLogo,
     author: {
