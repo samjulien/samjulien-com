@@ -1,6 +1,5 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import { css } from '@emotion/core'
 
 export default function PageImage({ image }) {
   return (
