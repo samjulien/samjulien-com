@@ -20,11 +20,11 @@ In this stream, Mike and I walk through setting up a very basic GraphQL client f
 
 Let's walk through the GraphQL stack to understand what's going on.
 
-GraphQL is a query language. It's concerned with **data access**. GraphQL is totally agnostic of whatever language or technology you are using. Even though it was created by Facebook, it is run independently and has a [spec]() that gets updated regularly.
+GraphQL is a query language. It's concerned with **data access**. GraphQL is totally agnostic of whatever language or technology you are using. Even though it was created by Facebook, it is run independently and has a [spec](http://spec.graphql.org/) that gets updated regularly.
 
-When you write a GraphQL schema on your server, something needs to translate between that schema and your database. You can either write that yourself or offload that to tools like [Prisma]() and [Hasura]() (Hasura does a bit more than that, but that's a subject for another day).
+When you write a GraphQL schema on your server, something needs to translate between that schema and your database. You can either write that yourself or offload that to tools like [Prisma](https://www.prisma.io/) and [Hasura](https://hasura.io/) (Hasura does a bit more than that, but that's a subject for another day).
 
-You can then run a server like [Apollo Server]() to make your entire GraphQL schema available as a single endpoint to your frontend. Sometimes you'll see this as `/graphql`, other times it will be the root of the server (`/`). The frontend calls the GraphQL endpoint with a `POST` request. In the body of that request is the query string, which looks like this:
+You can then run a server like [Apollo Server](https://www.apollographql.com/docs/apollo-server/) to make your entire GraphQL schema available as a single endpoint to your frontend. Sometimes you'll see this as `/graphql`, other times it will be the root of the server (`/`). The frontend calls the GraphQL endpoint with a `POST` request. In the body of that request is the query string, which looks like this:
 
 ```graphql
 query getHabits {
@@ -42,7 +42,7 @@ query getHabits {
 }
 ```
 
-On the frontend, libraries like [Apollo Client]() and [Relay]() make that request for you, but also do a bunch of other things that make your life easier. These include caching your data, polling the server, and providing extra developer tooling. One thing they can also do is help with your local **state management** such as handling errors and updating the UI during and after loading.
+On the frontend, libraries like [Apollo Client](https://www.apollographql.com/docs/react/) and [Relay](https://relay.dev/) make that request for you, but also do a bunch of other things that make your life easier. These include caching your data, polling the server, and providing extra developer tooling. One thing they can also do is help with your local **state management** such as handling errors and updating the UI during and after loading.
 
 What does this mean for NgRx? Since GraphQL is just a data access technology, it means that NgRx doesn't really care whether you're using REST or GraphQL. You can still use Angular's `HttpClient` to make a POST request to your GraphQL endpoint and let NgRx handle the data through Effects, Reducers, and Actions.
 
