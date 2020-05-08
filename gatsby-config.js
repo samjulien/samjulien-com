@@ -24,7 +24,7 @@ module.exports = {
       'ngUpgrade',
       'angularjs',
       'screencast',
-      'screencasting',
+      'ngrx',
       'gatsby',
       'gatsbyjs',
     ],

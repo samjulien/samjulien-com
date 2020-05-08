@@ -1,0 +1,191 @@
+---
+title: 'Write a Basic GraphQL Client for NgRx'
+slug: 'write-a-basic-graphql-client-for-ngrx'
+description: 'Confused on how to use a GraphQL API with NgRx? Sam Julien and Mike Ryan walk through a basic implementation of a GraphQL client.'
+date: '2020-05-08'
+date_updated: '2020-05-08'
+ogimage: './images/og-graphql-client-ngrx.png'
+published: true
+tags:
+  - Tech
+---
+
+import YouTube from 'components/YouTube'
+
+One question both [Mike Ryan](https://twitter.com/MikeRyanDev) and I get asked often is whether NgRx is compatible with [GraphQL](https://graphql.org/). I think the confusion comes from the fact that many popular GraphQL clients can also handle local state management. The assumption is then that, since NgRx handles state management for you, you wouldn't use GraphQL alongside NgRx.
+
+In this stream, Mike and I walk through setting up a very basic GraphQL client for NgRx. Hopefully this helps you "define the edges" around what GraphQL handles, what NgRx handles, and why robust GraphQL clients are needed. Please understand, though, that this is meant to be an educational exercise. A production app would require a lot of development for this client to ensure that it is secure and performant. That's the stuff libraries like Apollo work on every day!
+
+<YouTube shortCode="4p7yQpCdFGM" />
+
+Let's walk through the GraphQL stack to understand what's going on.
+
+GraphQL is a query language. It's concerned with **data access**. GraphQL is totally agnostic of whatever language or technology you are using. Even though it was created by Facebook, it is run independently and has a [spec]() that gets updated regularly.
+
+When you write a GraphQL schema on your server, something needs to translate between that schema and your database. You can either write that yourself or offload that to tools like [Prisma]() and [Hasura]() (Hasura does a bit more than that, but that's a subject for another day).
+
+You can then run a server like [Apollo Server]() to make your entire GraphQL schema available as a single endpoint to your frontend. Sometimes you'll see this as `/graphql`, other times it will be the root of the server (`/`). The frontend calls the GraphQL endpoint with a `POST` request. In the body of that request is the query string, which looks like this:
+
+```graphql
+query getHabits {
+  habits {
+    id
+    description
+    points
+    entries {
+      id
+      date
+      notes
+      completed
+    }
+  }
+}
+```
+
+On the frontend, libraries like [Apollo Client]() and [Relay]() make that request for you, but also do a bunch of other things that make your life easier. These include caching your data, polling the server, and providing extra developer tooling. One thing they can also do is help with your local **state management** such as handling errors and updating the UI during and after loading.
+
+What does this mean for NgRx? Since GraphQL is just a data access technology, it means that NgRx doesn't really care whether you're using REST or GraphQL. You can still use Angular's `HttpClient` to make a POST request to your GraphQL endpoint and let NgRx handle the data through Effects, Reducers, and Actions.
+
+To implement the basic GraphQL service, you'll just use a `POST` call:
+
+```ts
+// graphql.service.ts
+@Injectable({ providedIn: 'root' })
+export class GraphQLService {
+  constructor(readonly http: HttpClient) {}
+
+  fetch(query: string, variables: object = {}) {
+    return this.http.post('/graphql', { query, variables })
+  }
+}
+```
+
+Note that you would use the same `fetch` method to send both queries and mutations to your server. It's a bit confusing that the parameter the server is expecting is called `query` regardless of what you're sending. One thing you could do to make this developer experience a bit nicer is to wrap that fetch function into `query` and `mutation` functions. This would also allow any sort of customization you'd want to do for either scenario.
+
+In the stream, we also did a quick hack to trick Visual Studio Code into giving us syntax highlighting by creating a `gql` function:
+
+```ts
+// graphql.service.ts
+export function gql(stringPieces: TemplateStringsArray): string {
+  return stringPieces.join('')
+}
+```
+
+We can then use that function in our Effect, where we'll call the `GraphQLService`:
+
+```ts
+// app.effects.ts
+const getHabitsQuery = gql`
+  query getHabits {
+    habits {
+      id
+      description
+      points
+      entries {
+        id
+        date
+        notes
+        completed
+      }
+    }
+  }
+`
+
+@Injectable()
+export class AppEffects {
+  constructor(readonly graphql: GraphQLService, readonly actions$: Actions) {}
+
+  getHabits$ = createEffect(() => {
+    // Listen for the "enter home page action"
+    // then issue the GraphQL request
+    return this.actions$.pipe(
+      ofType(AppActions.enterHomePageAction),
+      exhaustMap(() => {
+        return this.graphql
+          .fetch(getHabitsQuery)
+          .pipe(
+            map((response: any) =>
+              AppActions.getHabitsSuccessAction(response.data.habits),
+            ),
+          )
+      }),
+    )
+  })
+}
+```
+
+We're using `exhaustMap` here in order to ignore any additional requests until the first one completes. To learn more about `exhaustMap`, `concatMap`, and other operators, check out [our joint talk from RxJS Live 2019](/rxjs-live-2019).
+
+Once we've got that data set as the payload from the `getHabitsSuccessAction`, we can add a case to the reducer:
+
+```ts
+// habits.reducer.ts
+export const habitsReducer = createReducer(
+  habitsInitialState,
+  on(
+    AppActions.getHabitsSuccessAction,
+    (state, action): HabitsShape => {
+      return {
+        ...state,
+        habits: action.habits,
+      }
+    },
+  ),
+)
+```
+
+Finally, to read the data from the store, we can set up a selector in the same file:
+
+```ts
+// habits.reducer.ts
+export const selectHabits = (state: HabitsShape) => state.habits
+```
+
+And then add it to our global selectors:
+
+```ts
+// app.state.ts
+export const selectHabitsState = (state: AppState) => state.habits
+export const selectHabits = createSelector(
+  selectHabitsState,
+  HabitsState.selectHabits,
+)
+```
+
+We're then able to inject the store in the component and read the data:
+
+```ts
+// app.component.ts
+constructor(store: Store<AppState.AppShape>) {
+  this.habits$ = store.select(AppState.selectHabits);
+
+  store.dispatch(AppActions.enterHomePageAction());
+}
+```
+
+There's a long way to go before this GraphQL client could be used in the real world. One last thing we experimented with before the end of the stream was adding a simple polling Effect:
+
+```ts
+// app.effects.ts
+pollForHabits$ = createEffect(() => {
+  return interval(2_500).pipe(
+    exhaustMap(() => {
+      return this.graphql
+        .fetch(getHabitsQuery)
+        .pipe(
+          map((response: any) =>
+            AppActions.getHabitsSuccessAction(response.data.habits),
+          ),
+        )
+    }),
+  )
+})
+```
+
+This will ensure that our list of habits is up to date by checking with the sever every 2.5 seconds and refreshing the data with the `getHabitsSuccessAction`.
+
+(Side note: did you know you can add the `_` character to help make milliseconds more readable? 🤯)
+
+[Check out the full repo on GitHub](https://github.com/MikeRyanDev/habits-graphql-angular) to see the rest of the code. To get notified the next time we work on this project, [follow me on Twitch](https://www.twitch.tv/samjulien).
+
+Happy coding! 👋
