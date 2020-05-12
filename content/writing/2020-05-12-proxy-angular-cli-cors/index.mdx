@@ -1,0 +1,65 @@
+---
+title: 'Use a Proxy with the Angular CLI to Fix CORS Development Problems'
+slug: 'proxy-angular-cli-cors'
+description: "When we first try to use a local server in development, we get a rude CORS error in the console and nothing works. This is because we're running the server and the client on different ports. We can fix this by setting up the Angular CLI to proxy requests to the API so they appear to be coming from the same origin."
+date: '2020-05-12'
+date_updated: '2020-05-12'
+ogimage: './images/og-proxy-angular-cli-cors.png'
+published: true
+tags:
+  - Tech
+---
+
+import Egghead from 'components/Egghead'
+
+This week in the [Angular Basics egghead collection](https://egghead.io/playlists/angular-basics-888f), we're talking about proxying local servers for development. This was something that really baffled me when I was first getting started as a developer, so I'm excited to share it with you.
+
+When we first try to use a local server for our data in development, we get a rude error in the console and nothing works. What is that and why are we getting it? Well, even though both the server and the client will eventually be on the same domain in production, we're getting CORS (cross-origin resource sharing) errors in development. That's because we're running the server and the client on different ports. We can fix this by setting up the Angular CLI to proxy all requests to the API for us so they appear to be coming from the same origin.
+
+Check out this egghead video to learn more:
+
+<Egghead url="https://egghead.io/lessons/angular-use-a-proxy-with-the-angular-cli-to-fix-cors-development-problems/embed?pl=angular-basics-888f" />
+
+To add the proxy, first create a file in the `src` folder of the Angular project called `proxy.conf.json`. Add the following configuration:
+
+```json
+// src/proxy.conf.json
+{
+  "/api": {
+    "target": "http://localhost:3001",
+    "secure": false
+  }
+}
+```
+
+We then need to tell the Angular CLI to use this proxy config. In `angular.json`, find the `serve` configuration of the `architects` section and add a new option to the `options` object called `proxyConfig`:
+
+```json
+// angular.json
+"architect": {
+  // build, etc.
+  "serve": {
+    "builder": "@angular-devkit/build-angular:dev-server",
+    "options": {
+      "browserTarget": "your-application-name:build",
+      "proxyConfig": "src/proxy.conf.json"
+    },
+    // configurations, etc.
+	}
+}
+```
+
+Lastly, update the `HabitService` so `getHabits` points to just `/api/habits` instead of the full server URL:
+
+```typescript
+// src/app/habit.service.ts
+getHabits(): Observable<Habit[]> {
+  return this.http.get<Habit[]>('/api/habits');
+}
+```
+
+Now when we run `npm start` to start up the Express server and the client (using `ng serve`), the habits load onto the page. If we look at the Chrome Dev Tools network tab, we can see that the request came from `localhost:4200/api/habits`. No more CORS problems!
+
+Note: this is just a fix for development. If you have CORS issues in production, the problem likely has to do with the server configuration!
+
+You can check out the code for all of the Angular basics lessons in my [egghead-angular repository on GitHub](https://github.com/samjulien/egghead-angular).
