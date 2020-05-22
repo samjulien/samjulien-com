@@ -1,0 +1,34 @@
+---
+title: 'Refetching Data with RxJS Subjects in Angular'
+slug: 'refetching-data-with-subjects-in-angular'
+description: "One of the things that drove me crazy when I was first learning RxJS in Angular was how difficult it seemed to reload a collection of data after I added or deleted an item. With promises, I could just use .then() and be on my way. What do we do with observables? Should we just nest another subscription? In this lesson, I'm going to show you one way using Subjects."
+date: '2020-05-22'
+date_updated: '2020-05-22'
+ogimage: './images/og-refetching-data-subjects.png'
+published: true
+tags:
+  - Tech
+---
+
+import Egghead from 'components/Egghead'
+
+One of the things that drove me crazy when I was first learning [RxJS](https://rxjs.dev/) in Angular was how difficult it seemed to reload a collection of data after I added or deleted an item. With promises, I could just use `.then()` and be on my way. What do we do with observables? Should we just nest another subscription? Even if we do that, since we're using the async pipe, nothing will happen. There are better ways to handle this that are more reactive. In this lesson, I'm going to show you one way using Subjects. Subjects are kind of like event emitters that can have multiple listeners.
+
+<Egghead url="https://egghead.io/lessons/angular-refetching-data-with-subjects-in-angular/embed?pl=angular-basics-888f" />
+
+A few vocab words I mention in this video:
+
+- Subject: A special type of Observable that allows values to be multicasted. Think of it like an event emitter that allows multiple listeners.
+- BehaviorSubject: A type of Subject that stores its latest value.
+- tap operator: Performs a side effect for every emission of its source Observable.
+- switchMap operator: Maps each value to an Observable, then flattens all of these inner Observables.
+
+Check out the [code on GitHub](https://github.com/samjulien/egghead-angular/tree/refetching-with-subjects) to see the result.
+
+## Helpful Links on RxJS Subjects and Refetching Data
+
+- [RxJS docs: Subjects](https://rxjs.dev/guide/subject)
+- [RxJS docs: tap](https://rxjs.dev/api/operators/tap)
+- [RxJS docs: switchMap](https://rxjs.dev/api/operators/switchMap)
+- [Nicholas Jamieson: Understanding Subjects](https://medium.com/angular-in-depth/rxjs-understanding-subjects-5c585188c3e1)
+- [Jennifer Wadella: Understanding Multicasting Observables in Angular](https://dev.to/bitovi/understanding-multicasting-observables-in-angular-2371)
