@@ -1,0 +1,48 @@
+---
+title: 'Finding the Path from AngularJS to Angular'
+slug: 'path-from-angularjs-to-angular'
+description: 'Finding your way from AngularJS to Angular can be really confusing. In this article, Sam Julien uncovers the different paths for migration and how to choose the one right for your company.'
+date: '2020-05-28'
+date_updated: '2020-05-28'
+ogimage: './images/og-path-angularjs-angular.png'
+published: true
+tags:
+  - Tech
+---
+
+import YouTube from 'components/YouTube'
+
+Migrating from AngularJS to Angular can be really overwhelming. How on earth do you figure out where to even begin?
+
+I reprised a talk I gave last year for the ngPittsburgh meetup group called "Finding the Right Path from AngularJS to Angular" that goes over a decision tree you can use to determine this. Here's the recording:
+
+<YouTube shortCode="rmtnStRR4Bw" />
+
+You can also [watch the original version from Angular Finland](https://www.youtube.com/watch?v=VAx2N5GSIqY).
+
+The (roughly) four paths for migrating from AngularJS to Angular are:
+
+1. Rewrite/burn everything to the ground, sometimes called a "big bang" approach
+2. ngUpgrade, a library from the Angular team that lets you run AngularJS and Angular side-by-side
+3. Hybrid Routing, which involves one frameowrk owning one route. This can be done client side with ngUpgrade or server side.
+4. Angular Elements, which are web components for Angular. These are like tiny frontends you can stick anywhere, including your legacy AngularJS code.
+
+If your company needs help with migration, I offer [remote migration consultations](https://www.upgradingangularjs.com/consulting). The most popular option is a full day review where we develop a customized action plan for your migration. We look at your build process, the current state of your legacy codebase, and anticipate any barriers you may have.
+
+## AngularJS Migration Resources from Me
+
+- [Slides from this talk](https://docs.google.com/presentation/d/1-3M2AvLouu15HTquBLNrZi7P5KRUovz7jPlQOxm2Yyk/edit?usp=sharing)
+- [Upgrading AngularJS](https://www.upgradingangularjs.com/), my comprehensive video course on ngUpgrade
+- [NDC London 2020](https://ndc-london.com/): My talk "Modernizing Large Frontends with Web Components" ([slides](http://samj.im/ndc-london), [video](https://www.youtube.com/watch?v=Q_DAn3EvYvY&list=PL03Lrmd9CiGeteXRzmn27mnlHKgOEACi2&index=100)) about migrating using Angular Elements
+
+### More Angular Community Migration Resources
+
+- [XLTS](https://xlts.dev/), extended long term support for AngularJS
+- [Angular Migration Forum & Wiki](https://github.com/angular/ngMigration-Forum/wiki)
+- [ngMigration Assistant](https://github.com/ellamaolson/ngMigration-Assistant)
+- [Directly Upgrading from AngularJS 1.X to Angular without Preparing the Existing Code Base](https://www.softwarearchitekt.at/post/2017/07/14/directly-upgrading-from-angularjs-1-x-to-angular-by-skipping-preparation.aspx) by Manfred Steyer
+- [Upgrading With Web Components: From AngularJS To Angular](https://www.softwarearchitekt.at/post/2018/09/02/upgrading-with-web-components-from-angularjs-to-angular.aspx) by Manfred Steyer
+- [Getting Started with Angular Elements](https://egghead.io/courses/getting-started-with-angular-elements) (egghead course) by Juri Strumpflohner
+- [Upgrading Angular Applications: Managing Routers and URL](https://blog.nrwl.io/upgrading-angular-applications-managing-routers-and-url-ca5588290aaa) by Victor Savkin
+- [Using NgUpgrade Like a Pro: Lazy Loading AngularJS Applications](https://blog.nrwl.io/using-ngupgrade-like-a-pro-lazy-loading-angularjs-applications-469819f5c86) by Victor Savkin
+- [How Capital One is Using Angular Elements to Upgrade from AngularJS to Angular](https://www.capitalone.com/tech/software-engineering/how-capital-one-is-using-angular-elements-to-upgrade-from-angularjs-to-angular/)
