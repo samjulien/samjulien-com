@@ -1,0 +1,102 @@
+---
+title: 'Creating a Pinned Articles Component in Gatsby'
+slug: 'pinned-articles-component-in-gatsby'
+description: "I wanted an easy way to pin articles to the front page of my website. It turns out Gatsby and GraphiQL make this process much easier than you'd think!"
+date: '2020-05-28 17:56:00'
+date_updated: '2020-05-28'
+ogimage: './images/og-pinned-articles-gatsby.png'
+published: true
+tags:
+  - Tech
+---
+
+I wanted an easy way to pin articles to the front page of my website. It turns out Gatsby and GraphiQL make this process much easier than you'd think!
+
+First, I added a new `pinned` field to the frontmatter of the articles I wanted to put on the front page and set it equal to `true`. Frontmatter fields are great for splicing, dicing, and sorting your content however you'd like.
+
+I then fired up Gatsby's built-in GraphiQL tool and built the following query:
+
+```graphql
+query {
+  allMdx(
+    sort: { fields: [frontmatter___date], order: DESC }
+    limit: 10
+    filter: {
+      frontmatter: { published: { ne: false }, pinned: { eq: true } }
+      fileAbsolutePath: { regex: "//content/writing//" }
+    }
+  ) {
+    edges {
+      node {
+        id
+        fields {
+          title
+          slug
+        }
+      }
+    }
+  }
+}
+```
+
+This query finds the 10 most recent pinned articles and sorts them by date descending.
+
+What's cool about using a filter of `pinned: { eq: true }` is that I don't have to go back and add this field to every single article. If I were to change the filter to `ne: false` like the filter for `published`, it would include articles that didn't include that field at all. This is because the filter will treat that null reference as a "truthy" value. I'm using the exact same principle in reverse with the `published` field: I can explicitly set it to `false` on articles I don't want published, but I don't have to remember to go back and flip that value to `true` to get them to show up.
+
+I then created a `PinnedArticles` component and used my query with the `useStaticQuery` hook that Gatsby provides. Here's the finished component:
+
+```jsx
+// src/components/PinnedArticles.js
+const PinnedArticles = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMdx(
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 10
+        filter: {
+          frontmatter: { published: { ne: false }, pinned: { eq: true } }
+          fileAbsolutePath: { regex: "//content/writing//" }
+        }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              title
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <ul>
+      {data.allMdx.edges.map(edge => (
+        <li key={edge.node.id}>
+          <Link to={`/${edge.node.fields.slug}`}>{edge.node.fields.title}</Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export default PinnedArticles
+```
+
+All that was left was to replace my hardcoded list of articles in `index.mdx` with my new `<PinnedArticles />` component:
+
+```markdown
+<!-- pages/index.mdx -->
+
+## Some Favorites
+
+These are what I'd considered my "foundational articles." They reflect some of the major lessons I've learned so far on my journey. If you're just getting to know me, start with these:
+
+<PinnedArticles />
+```
+
+And that's it! Now any time I want to pin a new article to the front page, I just set that frontmatter field and I'm on my way.
+
+If you like these Gatsby tips, hop on to my newsletter below. If you're new to Gatsby and want to get started from scratch, check out my Thinkster course [Up and Running with Gatsby](https://thinkster.io/tutorials/up-and-running-with-gatsby-intro).

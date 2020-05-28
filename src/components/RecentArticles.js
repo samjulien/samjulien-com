@@ -6,7 +6,7 @@ const RecentArticles = () => {
     query {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 3
+        limit: 5
         filter: {
           frontmatter: { published: { ne: false } }
           fileAbsolutePath: { regex: "//content/writing//" }
