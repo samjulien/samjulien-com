@@ -3,6 +3,7 @@ title: The Painfully Shy Developer's Guide to Networking for a Better Job (Witho
 slug: shy-dev-networking
 date: 2017-07-07T21:23:01.000Z
 date_updated: 2017-07-07T21:27:28.000Z
+pinned: true
 tags: 
 - Tech
 - Becoming Awesome

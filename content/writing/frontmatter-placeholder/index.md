@@ -11,6 +11,7 @@ tags:
 - test
 banner: './images/banner.jpg'
 published: false
+pinned: false
 redirects:
   - '/invisible-post-423123'
 ---

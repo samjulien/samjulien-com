@@ -150,6 +150,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
 
     createNodeField({
+      name: 'pinned',
+      node,
+      value: node.frontmatter.pinned,
+    })
+
+    createNodeField({
       name: 'title',
       node,
       value: node.frontmatter.title,
