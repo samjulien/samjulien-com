@@ -18,7 +18,7 @@ const RecentArticles = () => {
             fields {
               title
               slug
-              date(formatString: "MMM Do")
+              date(formatString: "MMMM Do, YYYY")
             }
           }
         }
