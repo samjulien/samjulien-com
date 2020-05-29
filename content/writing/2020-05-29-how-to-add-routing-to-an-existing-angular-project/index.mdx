@@ -1,0 +1,84 @@
+---
+title: 'How to Add Routing to an Existing Angular Project'
+slug: 'add-routing-existing-angular-project'
+description: "When we first create an Angular app with the Angular CLI, it gives us an option to add routing. Sometimes we don't know whether we want to add routing yet, so we say no. What do we do, though, if we decide to add routing later?"
+date: '2020-05-29'
+date_updated: '2020-05-29'
+ogimage: './images/og-add-routing-angular-existing-project.png'
+published: true
+tags:
+  - Tech
+---
+
+import Egghead from 'components/Egghead'
+import EditorEmbed from 'components/EditorEmbed'
+
+When we first create an Angular app with the Angular CLI using `ng new`, it gives us an option to add routing. Sometimes we don't know whether we want to add routing yet, so we say no. What do we do, though, if we decide to add routing later? There's no separate CLI command to set up the routing for you. In this lesson, I'll show you how to manually add routing to your Angular application.
+
+<Egghead url="https://egghead.io/lessons/angular-add-routing-to-an-existing-angular-project/embed?pl=angular-basics-888f&af=6zxcwn" />
+
+If you wanted to keep your routes in a separate module, you could do that by creating an `app-routing` module by using this Angular CLI command:
+
+```bash
+ng generate module app-routing --flat --module=app
+```
+
+The `flat` option will prevent the module from being in its folder and the `module` option will be sure to import the new module into the `AppModule`.
+
+I actually don't like this approach. I don't like to keep my routes in a separate routing module; I'd prefer to keep my routes in the same module in which they apply.
+
+To do this, in `app.module.ts`, I'll first import two things from Angular's router:
+
+```ts
+// src/app/app.module.ts
+import { RouterModule, Routes } from '@angular/router'
+```
+
+Then, I need to create an array that will eventually hold my route definitions:
+
+```ts
+// src/app/app.module.ts
+const routes: Routes = []
+```
+
+Finally, in my `NgModule` decorator, I need to add the router module to my imports:
+
+```ts
+// src/app/app.module.ts
+@NgModule({
+  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  declarations: [AppComponent, HomeComponent],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+The last thing we need to do here is add a way for the routes to display. This is called a router outlet and we can add it to the app component:
+
+```ts
+// src/app/app.component.ts
+<router-outlet></router-outlet>
+```
+
+To test this is working, let's add our first route. First, I'll generate a new component:
+
+```bash
+ng g c home
+```
+
+Then I'll add a new route for the home component and a fallback route in case there's no path to match:
+
+```ts
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+]
+```
+
+You should be able to run `ng serve` and see the `home` route in the browser!
+
+Here's the finished code for this video:
+
+<EditorEmbed url="https://stackblitz.com/edit/egghead-angular-routing?embed=1&file=src/app/app.module.ts&view=editor" />
+
+You can check out the rest of my [egghead Angular Basics playlist](https://egghead.io/playlists/angular-basics-888f?af=6zxcwn) for free and sign up for my newsletter below to get my latest coding and career tips sent straight to your inbox.
