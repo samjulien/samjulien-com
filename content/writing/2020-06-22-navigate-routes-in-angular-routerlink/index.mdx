@@ -1,0 +1,93 @@
+---
+title: 'Navigate Between Routes in Angular with routerLink'
+slug: 'navigate-routes-in-angular-routerlink'
+description: ''
+date: '2020-06-22'
+date_updated: '2020-06-22'
+ogimage: './images/og-navigate-routes-in-angular-routerlink.png'
+published: true
+tags:
+  - Tech
+---
+
+import Egghead from 'components/Egghead'
+import EditorEmbed from 'components/EditorEmbed'
+
+Once routing is set up, we can add a new route by adding a new component and adding a path to our routes array in `app.module.ts`. But how do we navigate between the two routes? In this lesson of Angular Basics, I'll show you how to use `routerLink` to switch between the routes without causing the page to refresh.
+
+Here's the video lesson:
+
+<Egghead url="https://egghead.io/lessons/angular-navigate-between-routes-in-angular-with-routerlink/embed?pl=angular-basics-888f&af=6zxcwn" />
+
+## Add a New Component with the Angular CLI
+
+To create a new route, we'll first need to create a new Angular component using the CLI. We can do this by running the command:
+
+```bash
+ng g c account
+```
+
+> The command `ng g c` is an abbreviation for `ng generate component`.
+
+## Add a New Route
+
+Once the CLI finished creating the component, we can go over to `app.module.ts` and add a new route to the `Routes` array:
+
+```ts
+// app.module.ts
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'account', component: AccountComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+]
+```
+
+When you run `ng serve` and check out `localhost:4200` in the browser, you should now be able to navigate to both `/` and `/account` and see their respective components. That's okay, but it'd be better if we could link between the routes in a navigation bar.
+
+## Add Links to Each Route
+
+Let's head over to `app.component.html` and add a simple nav component. If you're using Visual Studio Code, you can use Emmett right out of the box to generate this HTML by typing `nav>ul>li*2>a`. This will generate the following:
+
+```html
+<!-- app.component.html -->
+<nav>
+  <ul>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+  </ul>
+</nav>
+```
+
+Go ahead and update this with our two routes:
+
+```html
+<!-- app.component.html -->
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/account">Account</a></li>
+  </ul>
+</nav>
+```
+
+If you go back over the browser and click these links, what do you notice? The page is actually refreshing every time we click a link. We don't want that! Even though it doesn't seem like a big deal for this example, we're losing any sort of **app state** when we refresh the page. If we were keeping track of any data, such as from input fields, they'd reset every time the link was clicked.
+
+We can avoid this by using the [routerLink directive](https://angular.io/api/router/RouterLink) that Angular provides. Replace `href` with `routerLink` like so:
+
+```html
+<!-- app.component.html -->
+<nav>
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/account">Account</a></li>
+  </ul>
+</nav>
+```
+
+Now when we click between the routes, the page no longer refreshes. Awesome!
+
+Here's the finished example:
+
+<EditorEmbed url="https://stackblitz.com/edit/egghead-angular-router-link?embed=1&file=src/app/app.component.html&hideExplorer=1" />
+
+To learn more about routing in Angular, check out the [official docs on Angular routing](https://angular.io/api/router/RouterLink). To learn more Angular basics, you can check out the rest of my [egghead Angular Basics playlist](https://egghead.io/playlists/angular-basics-888f?af=6zxcwn) for free and sign up for my newsletter below to get my latest coding and career tips sent straight to your inbox.
