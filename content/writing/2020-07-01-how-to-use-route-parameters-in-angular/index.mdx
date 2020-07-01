@@ -1,0 +1,150 @@
+---
+title: 'How to Use Route Parameters in Angular'
+slug: 'how-to-use-route-parameters-in-angular'
+description: "We often need to pass a parameter like an ID to a route and then access that ID in order to call an API to get some data. In this article, we'll look at how to define a route with a parameter, how to use params with the routerLink directive, and how to use the route snapshot to use a param in a component."
+date: '2020-07-01'
+date_updated: '2020-07-01'
+ogimage: './images/og-use-route-params-angular.png'
+published: true
+tags:
+  - Tech
+---
+
+import Egghead from 'components/Egghead'
+import EditorEmbed from 'components/EditorEmbed'
+
+We often need to pass a parameter like an ID to a route and then access that ID in order to call an API to get some data. In this article, we'll look at how to define a route with a parameter, how to use params with the `routerLink` directive, and how to use the route snapshot to use a param in a component. We'll also learn about subscribing to route parameters with an observable.
+
+Check out the first lesson on understanding the basics of route parameters in Angular:
+
+<Egghead url="https://egghead.io/lessons/angular-navigate-to-and-display-components-with-route-parameters-in-angular/embed?pl=angular-basics-888f" />
+
+## Create a New Angular Component
+
+First let's create a new component using the Angular CLI:
+
+```shell
+ng g c account-detail
+```
+
+This will create the `account-detail` folder with the component, template, stylesheet, and test in it.
+
+## Define a New Angular Route
+
+We next need to define a new route in the `routes` array in `app.module.ts`. To do this, we create a new object with the same `path` and `component` properties as the other routes. This time, in the `path`, we'll need to add `/:id` to indicate that we're expecting a route parameter called `id`. The `routes` array will look like this:
+
+```ts
+// src/app/app.module.ts
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'account', component: AccountComponent },
+  { path: 'account/:id', component: AccountDetailComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+]
+```
+
+Go ahead and run `ng serve` if it's not already running. You should now be able to navigate to [localhost:4200](http://localhost:4200) and manually add the path to the account detail page in the URL bar (e.g. `/account/1`).
+
+## Linking to a Route with a Parameter
+
+Of course, this isn't the ideal way to navigate between routes, so let's add some links to our `Account` component to help us test this new route more efficiently. We can just hard code some account IDs for now.
+
+```html
+<ul>
+  <li><a [routerLink]="['/account', 1]">Account 1</a></li>
+  <li><a [routerLink]="['/account', 2]">Account 2</a></li>
+  <li><a [routerLink]="['/account', 3]">Account 3</a></li>
+</ul>
+```
+
+You should now be able to navigate to each of the three account detail pages.
+
+## Using Route Params in the Component
+
+At this point we're pretty sure our account detail route is working, but we're not using the account ID anywhere in the component. Let's fix that so we can be 100% sure everything is working right.
+
+We often need to pull a route parameter like an ID to call an API and grab some data. Here, let's just show the ID in the template.
+
+There are actually two different ways we can do this. The first way is through the **route snapshot**. The route snapshot provides the initial value of the route parameter map (called the `paramMap`). You can access the parameters directly without subscribing or adding observable operators. The `paramMap` provides methods to handle parameter access like `get`, `getAll`, and `has`. You can read more about it in [this section of the Angular docs about the router](https://angular.io/guide/router#parammap-api).
+
+Here's the component code using the route snapshot:
+
+```ts
+// src/app/account-detail/account-detail.component.ts
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+
+@Component({
+  selector: 'app-account-detail',
+  templateUrl: './account-detail.component.html',
+  styleUrls: ['./account-detail.component.css'],
+})
+export class AccountDetailComponent implements OnInit {
+  id: string
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id')
+  }
+}
+```
+
+Let's also display the ID on our template:
+
+```html
+<!-- // src/app/account-detail/account-detail.component.ts -->
+<p>Account ID: {{ id }}</p>
+```
+
+You should be able to now navigate to each account and see the correct ID. Nice!
+
+## Subscribing to the paramMap Observable
+
+I mentioned above that are two different ways to access route parameters in Angular components. One is through the **route snapshot** and the other is by **subscribing to the route `paramMap`**. When do you use each? Here's an egghead lesson to explain the difference:
+
+<Egghead url="https://egghead.io/lessons/angular-subscribing-to-route-params-in-angular/embed?pl=angular-basics-888f" />
+
+In the video, when I move the account navigation list into the account detail component, it breaks the display of the account ID in the template:
+
+```html
+<!-- src/app/account-detail/account-detail.component.ts -->
+<ul>
+  <li><a [routerLink]="['/account', 1]">Account 1</a></li>
+  <li><a [routerLink]="['/account', 2]">Account 2</a></li>
+  <li><a [routerLink]="['/account', 3]">Account 3</a></li>
+</ul>
+<p>account-detail works!</p>
+<p>Account ID: {{ id }}</p>
+```
+
+We can fix this problem by subscribing to the `paramMap` observable instead of using the route snapshot and update the value of the ID accordingly. Here's what the component code looks like when using this approach:
+
+```ts
+// src/app/account-detail/account-detail.ts
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute, ParamMap } from '@angular/router'
+
+@Component({
+  selector: 'app-account-detail',
+  templateUrl: './account-detail.component.html',
+  styleUrls: ['./account-detail.component.css'],
+})
+export class AccountDetailComponent implements OnInit {
+  id: number
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = +params.get('id')
+    })
+  }
+}
+```
+
+The key thing to remember here is that we're attempting to both set and read the ID route parameter in the same component. That's the main reason we need to use the observable here.
+
+Here's the finished code used in the video:
+
+<EditorEmbed url="https://stackblitz.com/edit/egghead-angular-route-params-subscribe?embed=1&file=src/app/account-detail/account-detail.component.ts" />
+
+To learn more about routing in Angular, check out the [official docs on Angular routing](https://angular.io/api/router/RouterLink). To learn more Angular basics, you can check out the rest of my [egghead Angular Basics playlist](https://egghead.io/playlists/angular-basics-888f?af=6zxcwn) for free and sign up for my newsletter below to get my latest coding and career tips sent straight to your inbox.
