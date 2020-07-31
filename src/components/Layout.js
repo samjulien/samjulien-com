@@ -7,7 +7,7 @@ import Header from './Header'
 import config from '../../config/website'
 import Footer from '../components/Footer'
 import 'focus-visible'
-import '../css/index.css'
+import '../css/output.css'
 
 function Layout({
   data,
