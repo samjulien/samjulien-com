@@ -6,7 +6,7 @@ import { useMedia } from 'react-use'
 const Header = ({ siteTitle }) => {
   const isMobile = useMedia('(max-width: 639px)')
   return (
-    <header>
+    <header className="relative z-10">
       <Container>
         <nav className="flex items-center justify-between w-full">
           <Link to="/" className="font-bold flex items-center flex-grow">
