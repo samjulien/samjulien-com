@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 
 export default function PageImage({ image }) {
   return (
-    <div style={{ marginBottom: '20px' }}>
+    <div className="mb-10 overflow-hidden rounded-lg shadow-lg">
       <Img sizes={image.childImageSharp.fluid} />
     </div>
   )

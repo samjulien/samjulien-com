@@ -1,43 +1,24 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import { css } from '@emotion/core'
-import theme from '../../../config/theme'
-import { rhythm } from '../../lib/typography'
-import { bpMaxSM } from '../../lib/breakpoints'
-import Message from '../ConfirmMessage/Message'
 
 const FORM_ID = process.env.GATSBY_CONVERTKIT_SIGNUP_FORM
 const API_KEY = process.env.GATSBY_CONVERTKIT_PUBLIC_KEY
 
 const SubscribeSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Invalid email address')
-    .required('Required'),
+  email: Yup.string().email('Invalid email address').required('Required'),
   first_name: Yup.string(),
 })
 
-const PostSubmissionMessage = () => {
-  return (
-    <div>
-      <Message
-        title={`Great! One last thing...`}
-        body={`I just sent you an email with the confirmation link.
-          **Please check your inbox!**`}
-      />
-    </div>
-  )
-}
-
-class SignUp extends React.Component {
-  state = {
+export default function Subscribe() {
+  const [state, setState] = React.useState({
     submitted: false,
     success: false,
     errorMessage: null,
-  }
+  })
 
-  async handleSubmit(values) {
-    this.setState({ submitted: true })
+  async function handleSubmit(values) {
+    setState({ submitted: true })
     values.api_key = API_KEY
     try {
       const response = await fetch(
@@ -53,153 +34,119 @@ class SignUp extends React.Component {
       )
 
       if (response.status === 200) {
-        this.setState({
+        setState({
           submitted: true,
           success: true,
           errorMessage: null,
         })
       }
     } catch (error) {
-      this.setState({
+      setState({
         submitted: false,
         errorMessage: 'Something went wrong!',
       })
     }
   }
 
-  render() {
-    const { success, errorMessage } = this.state
+  return (
+    <div>
+      {!state.success && (
+        <>
+          <h2 className="text-2xl leading-tight">
+            I send emails about getting better at coding and life.
+          </h2>
+          <p className="text-gray-700 sm:text-xl text-base mt-4">
+            I'm on a path to become a better human and developer and I want to
+            bring as many friends with me as possible. Want to join me? Sign up
+            below.{' '}
+            <span role="img" aria-label="point down emoji">
+              👇
+            </span>
+          </p>
+        </>
+      )}
 
-    return (
-      <div>
-        {!success && (
+      <Formik
+        initialValues={{
+          email: '',
+          first_name: '',
+        }}
+        validationSchema={SubscribeSchema}
+        onSubmit={(values) => handleSubmit(values)}
+        render={({ isSubmitting }) => (
           <>
-            <h2
-              css={css`
-                margin-bottom: ${rhythm(1)};
-                margin-top: 0;
-              `}
-            >
-              I send emails about getting better at coding and life.
-            </h2>
-            <p>
-              I'm on a path to become a better human and developer and I want to
-              bring as many friends with me as possible. Want to join me? Sign
-              up below.{' '}
-              <span role="img" aria-label="point down emoji">
-                👇
-              </span>
-            </p>
-          </>
-        )}
-
-        <Formik
-          initialValues={{
-            email: '',
-            first_name: '',
-          }}
-          validationSchema={SubscribeSchema}
-          onSubmit={values => this.handleSubmit(values)}
-          render={({ isSubmitting }) => (
-            <>
-              {!success && (
-                <Form
-                  css={css`
-                    display: flex;
-                    align-items: flex-end;
-                    button {
-                      margin-left: 10px;
-                    }
-                    .field-error {
-                      display: block;
-                      color: ${theme.colors.red};
-                      font-size: 80%;
-                    }
-                    input,
-                    label {
-                      width: 100%;
-                    }
-                    ${bpMaxSM} {
-                      flex-direction: column;
-                      align-items: flex-start;
-                      width: auto;
-                      label,
-                      input {
-                        margin: 5px 0 0 0 !important;
-                        width: 100%;
-                        display: flex;
-                        flex-direction: column;
-                      }
-                      button {
-                        margin: 20px 0 0 0;
-                      }
-                    }
-                  `}
-                >
+            {!state.success && (
+              <Form className="flex sm:flex-row flex-col gap-6 sm:items-end items-center mt-8">
+                <div className="flex-grow sm:w-auto w-full">
                   <label htmlFor="first_name">
-                    <div
-                      css={css`
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: flex-end;
-                      `}
-                    >
-                      First Name
-                      <ErrorMessage
-                        name="first_name"
-                        component="span"
-                        className="field-error"
-                      />
-                    </div>
+                    First Name
+                    <ErrorMessage
+                      name="first_name"
+                      component="span"
+                      className="ml-2 inline-block text-red-500"
+                    />
+                  </label>
+                  <div className="mt-1 relative rounded-md shadow-sm">
                     <Field
-                      aria-label="your first name"
+                      className="form-input block w-full sm:text-base sm:leading-6 focus:border-green-300 focus:shadow-outline-green"
                       aria-required="false"
                       name="first_name"
                       placeholder="Garak"
                       type="text"
                     />
-                  </label>
+                  </div>
+                </div>
+                <div className="flex-grow sm:w-auto w-full">
                   <label htmlFor="email">
-                    <div
-                      css={css`
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: flex-end;
-                      `}
-                    >
-                      Email
-                      <ErrorMessage
-                        name="email"
-                        component="span"
-                        className="field-error"
-                      />
-                    </div>
+                    Email*
+                    <ErrorMessage
+                      name="email"
+                      component="span"
+                      className="ml-2 inline-block text-red-500"
+                    />
+                  </label>
+                  <div className="mt-1 relative rounded-md shadow-sm">
                     <Field
-                      aria-label="your email address"
+                      required
                       aria-required="true"
+                      className="form-input block w-full sm:text-base sm:leading-6 focus:border-green-300 focus:shadow-outline-green"
                       name="email"
                       placeholder="garak@ds9.station"
                       type="email"
                     />
-                  </label>
-                  <button
-                    data-element="submit"
-                    type="submit"
-                    disabled={isSubmitting}
-                  >
-                    {!isSubmitting && 'Submit'}
-                    {isSubmitting && 'Submitting...'}
-                  </button>
-                </Form>
-              )}
-              {success && <PostSubmissionMessage />}
-              {errorMessage && <div>{errorMessage}</div>}
-            </>
-          )}
-        />
-      </div>
-    )
-  }
+                  </div>
+                </div>
+                <button
+                  className="sm:text-base sm:leading-6 px-4 py-2 rounded-md bg-green-500 text-white hover:bg-green-600 transition-colors ease-in-out duration-200"
+                  data-element="submit"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  {!isSubmitting && 'Sign Up'}
+                  {isSubmitting && 'Processing...'}
+                </button>
+              </Form>
+            )}
+            {state.success && (
+              <div className="prose lg:prose-xl max-w-none mb-10">
+                <h3>Thanks so much for signing up! There's one last step.</h3>
+                <p>
+                  Please check your inbox for an email that just got sent.
+                  You'll need to <strong>click the confirmation link</strong> to
+                  receive any further emails.
+                </p>
+                <p>
+                  If you don't see the email after a few minutes, you might
+                  check your spam folder or other filters and add
+                  sam@samjulien.com to your contacts.
+                </p>
+                <em>Thanks, Sam</em>
+              </div>
+            )}
+            {state.errorMessage && <div>{state.errorMessage}</div>}
+          </>
+        )}
+      />
+    </div>
+  )
 }
-
-export default SignUp

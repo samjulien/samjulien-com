@@ -1,8 +1,10 @@
+/** @jsx jsx */
 import React from 'react'
-import { css } from '@emotion/core'
-import theme from 'prism-react-renderer/themes/oceanicNext'
+import { jsx } from '@emotion/core'
+import theme from 'prism-react-renderer/themes/nightOwl'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+import mq from '../../utils/mq'
 
 const Code = ({ codeString, language, ...props }) => {
   if (props['react-live']) {
@@ -23,21 +25,15 @@ const Code = ({ codeString, language, ...props }) => {
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
-            className={className}
-            style={{ ...style, whiteSpace: 'pre-wrap' }}
+            className="p-8 sm:mx-0 -mx-5"
+            style={{ ...style }}
+            css={mq({
+              borderRadius: ['0px !important', '0.5rem !important'],
+            })}
           >
             {tokens.map((line, i) => (
               <div {...getLineProps({ line, key: i })}>
-                <span
-                  css={css`
-                    display: inline-block;
-                    width: 2em;
-                    user-select: none;
-                    opacity: 0.3;
-                  `}
-                >
-                  {i + 1}
-                </span>
+                {/* <span>{i + 1}</span> */}
                 {line.map((token, key) => (
                   <span {...getTokenProps({ token, key })} />
                 ))}

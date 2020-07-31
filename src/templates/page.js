@@ -8,18 +8,7 @@ export default ({ children }) => {
   return (
     <Layout>
       <SEO />
-      <Container
-        css={css`
-          padding-bottom: 0;
-          small {
-            display: block;
-          }
-        `}
-      >
-        {children}
-
-        <hr />
-      </Container>
+      <Container>{children}</Container>
     </Layout>
   )
 }

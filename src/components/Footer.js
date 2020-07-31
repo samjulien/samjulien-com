@@ -1,43 +1,16 @@
 import React from 'react'
-import { css } from '@emotion/core'
-import { bpMaxSM } from '../lib/breakpoints'
+
 import SubscribeForm from './Forms/Subscribe'
 import { Twitter, GitHub } from './Social'
 import Container from './Container'
 
 const Footer = ({ author, noSubscribeForm }) => (
-  <footer>
-    <Container
-      css={css`
-        padding-top: 0;
-        ${bpMaxSM} {
-          padding-top: 0;
-        }
-      `}
-    >
-      {!noSubscribeForm && (
-        <div>
-          <SubscribeForm />
-          <br />
-          <br />
-        </div>
-      )}
-      <div
-        css={css`
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        `}
-      >
-        <div
-          css={css`
-            font-size: 90%;
-            opacity: 0.7;
-          `}
-        >
-          {author && `${author} \u00A9 ${new Date().getFullYear()}`}
-        </div>
-        <div>
+  <footer className="sm:pt-16 sm:pb-16 pb-5 pt-16">
+    <Container>
+      {!noSubscribeForm && <SubscribeForm />}
+      <div className="flex items-center justify-between mt-20">
+        <div>{author && `${author} \u00A9 ${new Date().getFullYear()}`}</div>
+        <div className="flex gap-4 items-center">
           <Twitter />
           <GitHub />
         </div>
