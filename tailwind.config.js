@@ -24,7 +24,7 @@ module.exports = {
           },
           'h1, h2, h3, h4, h5': {
             fontVariationSettings:
-              "'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5",
+              "'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5",
           },
           strong: {
             fontVariationSettings:

@@ -31,7 +31,7 @@ body {
   h5 {
     /* font-family: 'Playfair Display', serif;
     font-variation-settings: 'wght' 800; */
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0,
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0,
       'CRSV' 0.5;
   }
 
