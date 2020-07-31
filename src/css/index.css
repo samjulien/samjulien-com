@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* variable: Recursive — https://recursive.design */
+@import url('https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..800,0..1,0..1,0..1&display=swap');
+
+.font-bold {
+  font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+}
+
+body {
+  @apply text-base;
+  @screen sm {
+    @apply text-lg;
+  }
+
+  font-family: 'Recursive', monospace;
+  font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
+
+  code,
+  pre {
+    font-variation-settings: 'MONO' 1, 'CASL' 0, 'wght' 400, 'slnt' 0,
+      'CRSV' 0.5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    /* font-family: 'Playfair Display', serif;
+    font-variation-settings: 'wght' 800; */
+    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0,
+      'CRSV' 0.5;
+  }
+
+  strong {
+    font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 800, 'slnt' 0,
+      'CRSV' 0.5;
+  }
+
+  em {
+    font-variation-settings: 'MONO' 0, 'CASL' 0.4, 'wght' 400, 'slnt' -15,
+      'CRSV' 0.5;
+  }
+
+  a {
+    @apply text-green-600;
+  }
+}
+
+::selection {
+  @apply bg-green-500 text-white;
+}
+
+/*
+  This will hide the focus indicator if the element receives focus via the mouse,
+  but it will still show up on keyboard focus.
+*/
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}

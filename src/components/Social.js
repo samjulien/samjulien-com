@@ -1,22 +1,11 @@
 import React from 'react'
 import Link from './Link'
-import theme from '../../config/theme'
-import { css } from '@emotion/core'
 import config from '../../config/website'
 
-export const Twitter = ({
-  color = `${theme.colors.body_color}`,
-  url = `${config.twitter}`,
-}) => (
+export const Twitter = ({ url = `${config.twitter}` }) => (
   <Link
+    className="text-green-500 hover:text-green-600"
     to={url}
-    css={css`
-      color: ${color};
-      margin-left: 10px;
-      :hover {
-        color: ${theme.brand.primary};
-      }
-    `}
     aria-label="Visit my Twitter"
   >
     <svg
@@ -34,19 +23,10 @@ export const Twitter = ({
   </Link>
 )
 
-export const LinkedIn = ({
-  color = `${theme.colors.body_color}`,
-  url = `${config.linkedin}`,
-}) => (
+export const LinkedIn = ({ url = `${config.linkedin}` }) => (
   <Link
+    className="text-green-500 hover:text-green-600"
     to={url}
-    css={css`
-      margin-left: 10px;
-      color: ${color};
-      :hover {
-        color: ${theme.brand.primary};
-      }
-    `}
     aria-label="Visit my LinkedIn"
   >
     <svg
@@ -63,19 +43,10 @@ export const LinkedIn = ({
   </Link>
 )
 
-export const GitHub = ({
-  color = `${theme.colors.body_color}`,
-  url = `${config.github}`,
-}) => (
+export const GitHub = ({ url = `${config.github}` }) => (
   <Link
+    className="text-green-500 hover:text-green-600"
     to={url}
-    css={css`
-      margin-left: 10px;
-      color: ${color};
-      :hover {
-        color: ${theme.brand.primary};
-      }
-    `}
     aria-label="Visit my GitHub"
   >
     <svg

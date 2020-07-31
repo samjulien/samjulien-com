@@ -3,6 +3,8 @@ const config = require('./config/website')
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 const here = (...p) => path.join(__dirname, ...p)
 
+const tailwindConfig = require('./tailwind.config.js')
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -62,6 +64,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images`,
+        name: 'images',
+      },
+    },
+    {
       resolve: 'gatsby-source-airtable',
       options: {
         apiKey: process.env.AIRTABLE_API_KEY,
@@ -92,6 +101,19 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require(`tailwindcss`)(tailwindConfig),
+          require(`autoprefixer`),
+          require(`postcss-nested`),
+          ...(process.env.NODE_ENV === `production`
+            ? [require(`cssnano`)]
+            : []),
+        ],
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-emotion',
@@ -107,12 +129,7 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: 'standalone',
-      },
-    },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/lib/typography`,
+        icon: 'src/images/icon.png',
       },
     },
     {
@@ -123,7 +140,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-robots-txt',
   ],
 }
