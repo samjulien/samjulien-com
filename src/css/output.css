@@ -1056,7 +1056,7 @@ video {
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5 {
-  font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+  font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
 }
 
 .prose em {
@@ -2560,7 +2560,7 @@ video {
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5 {
-  font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+  font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
 }
 
 .prose em {
@@ -39783,6 +39783,8 @@ video {
           animation: bounce 1s infinite;
 }
 
+/* purgecss start ignore */
+
 /* variable: Recursive — https://recursive.design */
 
 @import url('https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..800,0..1,0..1,0..1&display=swap');
@@ -39810,7 +39812,7 @@ body {
   h5 {
     /* font-family: 'Playfair Display', serif;
     font-variation-settings: 'wght' 800; */
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0,
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0,
       'CRSV' 0.5;
   }
   strong {
@@ -39854,6 +39856,8 @@ body {
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
+
+/* purgecss end ignore */
 
 @media (min-width: 640px) {
   .sm\:container {
@@ -40230,7 +40234,7 @@ body {
   }
 
   .sm\:prose h1, .sm\:prose h2, .sm\:prose h3, .sm\:prose h4, .sm\:prose h5 {
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
   }
 
   .sm\:prose em {
@@ -41479,7 +41483,7 @@ body {
   }
 
   .sm\:prose h1, .sm\:prose h2, .sm\:prose h3, .sm\:prose h4, .sm\:prose h5 {
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
   }
 
   .sm\:prose em {
@@ -79078,7 +79082,7 @@ body {
   }
 
   .md\:prose h1, .md\:prose h2, .md\:prose h3, .md\:prose h4, .md\:prose h5 {
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
   }
 
   .md\:prose em {
@@ -80327,7 +80331,7 @@ body {
   }
 
   .md\:prose h1, .md\:prose h2, .md\:prose h3, .md\:prose h4, .md\:prose h5 {
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
   }
 
   .md\:prose em {
@@ -117926,7 +117930,7 @@ body {
   }
 
   .lg\:prose h1, .lg\:prose h2, .lg\:prose h3, .lg\:prose h4, .lg\:prose h5 {
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
   }
 
   .lg\:prose em {
@@ -119175,7 +119179,7 @@ body {
   }
 
   .lg\:prose h1, .lg\:prose h2, .lg\:prose h3, .lg\:prose h4, .lg\:prose h5 {
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
   }
 
   .lg\:prose em {
@@ -156774,7 +156778,7 @@ body {
   }
 
   .xl\:prose h1, .xl\:prose h2, .xl\:prose h3, .xl\:prose h4, .xl\:prose h5 {
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
   }
 
   .xl\:prose em {
@@ -158023,7 +158027,7 @@ body {
   }
 
   .xl\:prose h1, .xl\:prose h2, .xl\:prose h3, .xl\:prose h4, .xl\:prose h5 {
-    font-variation-settings: 'MONO' 0, 'CASL' 0.5, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+    font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
   }
 
   .xl\:prose em {

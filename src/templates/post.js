@@ -7,15 +7,12 @@ import Container from 'components/Container'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
 import Share from '../components/Share'
-import config from '../../config/website'
 
 export default function Post({ data: { site, mdx, next, prev } }) {
   const { date, title, banner, date_updated, ogimage } = mdx.frontmatter
   const keywords = site.siteMetadata.keywords
   const showDateUpdated = date_updated && date_updated > date
   const ogImagePath = ogimage && ogimage.childImageSharp.fixed.src
-
-  console.log(next)
 
   return (
     <Layout frontmatter={mdx.frontmatter}>
