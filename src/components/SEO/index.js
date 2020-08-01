@@ -40,7 +40,7 @@ const SEO = ({ postData, frontmatter = {}, postImage, isBlogPost }) => (
       const description = postMeta.description || seo.description
       const image = postImage
         ? `${seo.canonicalUrl}${postImage}`
-        : defaultOgImage
+        : `https://samjulien.com/ogimage.png`
       const url = postMeta.slug
         ? `${seo.canonicalUrl}${path.sep}${postMeta.slug}`
         : seo.canonicalUrl

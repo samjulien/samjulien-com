@@ -4,7 +4,7 @@ module.exports = {
     './src/pages/**/*.js',
     './src/pages/**/*.mdx',
     './src/templates/**/*.js',
-    './content/modules/**/*.mdx',
+    './content/**/*.mdx',
   ],
   theme: {
     fontFamily: {
