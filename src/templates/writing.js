@@ -29,7 +29,7 @@ const Blog = ({ data: { allMdx } }) => {
     <Layout>
       <SEO />
       <Container>
-        <form className="mb-4 mt-6">
+        <form className="mb-4 sm:mt-6 mt-0">
           <label htmlFor="search" className="sr-only">
             Search articles
           </label>

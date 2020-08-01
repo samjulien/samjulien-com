@@ -76,8 +76,8 @@ export default function Subscribe() {
         render={({ isSubmitting }) => (
           <>
             {!state.success && (
-              <Form className="flex sm:flex-row flex-col gap-6 sm:items-end items-center mt-8">
-                <div className="flex-grow sm:w-auto w-full">
+              <Form className="flex sm:flex-row flex-col sm:items-end items-center mt-8">
+                <div className="flex-grow sm:w-auto w-full sm:mr-6 mr-0 sm:mb-0 mb-6">
                   <label htmlFor="first_name">
                     First Name
                     <ErrorMessage
@@ -96,7 +96,7 @@ export default function Subscribe() {
                     />
                   </div>
                 </div>
-                <div className="flex-grow sm:w-auto w-full">
+                <div className="flex-grow sm:w-auto w-full sm:mr-6 mr-0 sm:mb-0 mb-6">
                   <label htmlFor="email">
                     Email*
                     <ErrorMessage

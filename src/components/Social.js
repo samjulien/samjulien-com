@@ -4,7 +4,7 @@ import config from '../../config/website'
 
 export const Twitter = ({ url = `${config.twitter}` }) => (
   <Link
-    className="text-green-500 hover:text-green-600"
+    className="text-green-500 hover:text-green-600 mx-2"
     to={url}
     aria-label="Visit my Twitter"
   >
@@ -25,7 +25,7 @@ export const Twitter = ({ url = `${config.twitter}` }) => (
 
 export const LinkedIn = ({ url = `${config.linkedin}` }) => (
   <Link
-    className="text-green-500 hover:text-green-600"
+    className="text-green-500 hover:text-green-600 mx-2"
     to={url}
     aria-label="Visit my LinkedIn"
   >
@@ -45,7 +45,7 @@ export const LinkedIn = ({ url = `${config.linkedin}` }) => (
 
 export const GitHub = ({ url = `${config.github}` }) => (
   <Link
-    className="text-green-500 hover:text-green-600"
+    className="text-green-500 hover:text-green-600 ml-2"
     to={url}
     aria-label="Visit my GitHub"
   >
