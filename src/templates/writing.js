@@ -6,7 +6,7 @@ import SEO from '../components/SEO'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
 import Fuse from 'fuse.js'
-import { isEmpty, get } from 'lodash'
+import { isEmpty } from 'lodash'
 
 const Blog = ({ data: { allMdx } }) => {
   const posts = allMdx.edges
@@ -64,6 +64,7 @@ const Blog = ({ data: { allMdx } }) => {
                     <div className="w-full mr-8 overflow-hidden rounded-md">
                       <Img
                         sizes={node.frontmatter.banner.childImageSharp.fluid}
+                        fluid={node.frontmatter.banner.childImageSharp.fluid}
                       />
                     </div>
                   )}
@@ -92,6 +93,7 @@ const Blog = ({ data: { allMdx } }) => {
                   <div className="w-full mr-8 overflow-hidden rounded-md">
                     <Img
                       sizes={post.frontmatter.banner.childImageSharp.fluid}
+                      fluid={post.frontmatter.banner.childImageSharp.fluid}
                     />
                   </div>
                 )}

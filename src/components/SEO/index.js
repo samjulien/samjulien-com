@@ -5,7 +5,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import SchemaOrg from './SchemaOrg'
 import config from '../../../config/website'
-import defaultOgImage from '../../images/ogimage.png'
 
 const SEO = ({ postData, frontmatter = {}, postImage, isBlogPost }) => (
   <StaticQuery

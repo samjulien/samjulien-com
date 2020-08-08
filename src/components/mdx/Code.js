@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from 'react'
 import { jsx } from '@emotion/core'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import Highlight, { defaultProps } from 'prism-react-renderer'

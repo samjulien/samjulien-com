@@ -6,12 +6,12 @@ import SEO from 'components/SEO'
 import Container from 'components/Container'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
-import Share from '../components/Share'
 
 export default function Post({ data: { site, mdx, next, prev } }) {
   const { date, title, banner, date_updated, ogimage } = mdx.frontmatter
   const keywords = site.siteMetadata.keywords
-  const showDateUpdated = date_updated && date_updated > date
+  const showDateUpdated =
+    date_updated && new Date(date_updated) > new Date(date)
   const ogImagePath = ogimage && ogimage.childImageSharp.fixed.src
 
   return (
@@ -25,6 +25,7 @@ export default function Post({ data: { site, mdx, next, prev } }) {
           <div className="overflow-hidden sm:rounded-lg rounded-none my-8 -mx-5">
             <Img
               sizes={banner.childImageSharp.fluid}
+              fluid={banner.childImageSharp.fluid}
               alt={keywords.join(', ')}
             />
           </div>
@@ -98,8 +99,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         description
-        date(formatString: "MMMM Do, YYYY")
-        date_updated(formatString: "MMMM Do, YYYY")
+        date(formatString: "MMMM DD, YYYY")
+        date_updated(formatString: "MMMM DD, YYYY")
         author
         ogimage {
           childImageSharp {

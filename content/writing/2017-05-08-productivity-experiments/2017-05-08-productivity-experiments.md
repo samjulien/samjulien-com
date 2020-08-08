@@ -1,0 +1,19 @@
+---
+title: Productivity Experiments
+slug: productivity-experiments
+date: 2017-05-08T16:00:02.000Z
+date_updated: 2017-07-28T21:16:41.000Z
+published: true
+tags: 
+- Becoming Awesome
+---
+
+I've been working on hard on continuing to improve myself and design my ideal lifestyle (location independence + meaningful work that contributes to others). These days I've been doubling down on my day job work while also putting in time on side projects and businesses I'm building. To that end, I've been doing the following experiments to boost my productivity:
+ 
+- **Ditching as much stuff as possible**. I gave away nearly 80% of what I had in my storage unit in Florida. If there's one thing I've learned in my wilderness immersion program, it's that 80% of what you think is necessary and important probably isn't. Marie Kondo's famous [book on tidying](https://www.amazon.com/Life-Changing-Magic-Tidying-Decluttering-Organizing-ebook/dp/B00KK0PICK/ref=sr_1_1?ie=UTF8&qid=1494258706&sr=8-1&keywords=art+of+tidying+up) really drove this point home for me. I'm being ruthless in the stuff I give away, keeping in mind the philosophy that often a thing's purpose was to teach you that you don't need it. If you truly do end up needing it, you can always get it again.
+- **Reducing my decision fatigue** by first eliminating options in how I spend time and what I buy, then making quick decisions on things that ultimately don't matter. That 80/20 principle holds true as much for activities as it does for stuff. 20% of activities produce 80% of the results. I'm cutting a lot of things from my schedule in order to free my mind to do what is important to me. As I do this, I am realizing that very few decisions are critical or irreversible, so I go with my gut and see what happens. So far so good.
+- I have been using the **Pomodoro Technique** with the web site [Marinara Timer](http://www.marinaratimer.com). The concept is simple: 25 minute periods of focus with 5 minute break periods in between, and eventually a long break. Main observation: forcing yourself to focus on one task for 25 minutes turns difficult problems into a game. I had tried Pomodoro in the past, but was not doing it right. I would set the timer but then continue to just meander my way through a million tabs and applications. I wasn't just focusing on one thing at a time. That's the magic ingredient. Close everything else until you need to open a window to research a problem.
+- I installed [Rescue Time](http://www.rescuetime.com) on all of my devices, which **monitors and categorizes all computer activity** and provides a dashboard for you to see results. I'm using the free version, but will probably upgrade in order to get some more advanced reporting and offline time logging. This fits with my earlier practice of logging my food intake as a key to my successful weight loss. Mindfulness is always the first step to change. Main observation: I am a poor judge of how much or how little time I am spending on things.
+- I also installed the Chrome extension StayFocusd, which lets me **limit my social media consumption** by creating a list of sites (Facebook and Twitter for me) and setting a total amount of allowed time on them. This time limit does not work across devices, but that's fine, because it lets me set 20 minutes at work and 30 minutes at home, so less than an hour a day total on social media on my computers. Main observation: simply setting a limit to this makes me avoid it, as I am a "saver" by nature.
+
+I am doing all of this under a testing mindset: setting up systems that will make me as productive and effective as possible and then tweaking them along the way.

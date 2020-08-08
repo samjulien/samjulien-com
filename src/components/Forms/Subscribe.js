@@ -73,7 +73,8 @@ export default function Subscribe() {
         }}
         validationSchema={SubscribeSchema}
         onSubmit={(values) => handleSubmit(values)}
-        render={({ isSubmitting }) => (
+      >
+        {({ isSubmitting }) => (
           <>
             {!state.success && (
               <Form className="flex sm:flex-row flex-col sm:items-end items-center mt-8">
@@ -140,13 +141,15 @@ export default function Subscribe() {
                   check your spam folder or other filters and add
                   sam@samjulien.com to your contacts.
                 </p>
-                <em>Thanks, Sam</em>
+                <em>Thanks!</em>
+                <br />
+                <em>Sam</em>
               </div>
             )}
             {state.errorMessage && <div>{state.errorMessage}</div>}
           </>
         )}
-      />
+      </Formik>
     </div>
   )
 }

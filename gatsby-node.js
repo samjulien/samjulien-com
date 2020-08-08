@@ -1,13 +1,10 @@
 const path = require('path')
-
 const _ = require('lodash')
-
-const PAGINATION_OFFSET = 7
 
 const createPosts = (createPage, createRedirect, edges) => {
   edges.forEach(({ node }, i) => {
-    const prev = i === 0 ? null : edges[i - 1].node
-    const next = i === edges.length - 1 ? null : edges[i + 1].node
+    const next = i === 0 ? null : edges[i - 1].node
+    const prev = i === edges.length - 1 ? null : edges[i + 1].node
     const pagePath = node.fields.slug
 
     if (node.fields.redirects) {
