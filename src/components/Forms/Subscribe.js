@@ -53,15 +53,12 @@ export default function Subscribe() {
       {!state.success && (
         <>
           <h2 className="text-2xl leading-tight">
-            I send emails about getting better at coding and life.
+            Come hang out by the digital campfire.
           </h2>
           <p className="text-gray-700 sm:text-xl text-base mt-4">
-            I'm on a path to become a better human and developer and I want to
-            bring as many friends with me as possible. Want to join me? Sign up
-            below.{' '}
-            <span role="img" aria-label="point down emoji">
-              👇
-            </span>
+            Grab a seat and let's chat about what's bringing us joy, what's
+            working, and what's not as we walk the path of being better people
+            and better developers.
           </p>
         </>
       )}

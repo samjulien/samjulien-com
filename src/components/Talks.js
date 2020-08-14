@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import theme from '../../config/theme'
 
-const labelColor = type => {
+const labelColor = (type) => {
   let color
   switch (type) {
     case 'Conference':
@@ -20,7 +20,7 @@ const labelColor = type => {
 }
 
 const TalkType = styled.label`
-  background-color: ${props => labelColor(props.type)};
+  background-color: ${(props) => labelColor(props.type)};
   padding: 5px;
   border-radius: 5px;
 `
@@ -36,10 +36,12 @@ const Talks = () => {
               Content
               End_Date(formatString: "MM/DD/YYYY")
               Event_Link
-              Event_Name
+              Event
+              Featured
               Location
               Slides
               Start_Date(formatString: "MM/DD/YYYY")
+              Talk
               Topic
               Type
               Year
@@ -57,11 +59,11 @@ const Talks = () => {
 
   return (
     <>
-      {sortedGroups.map(group => (
+      {sortedGroups.map((group) => (
         <>
           <h2>{group.fieldValue}</h2>
           <ul>
-            {group.nodes.map(node => (
+            {group.nodes.map((node) => (
               <li
                 css={css`
                   list-style-type: none;
@@ -75,9 +77,9 @@ const Talks = () => {
                 <TalkType type={node.data.Type}>{node.data.Type}</TalkType>
                 <br />
                 {node.data.Event_Link && (
-                  <a href={node.data.Event_Link}>{node.data.Event_Name}</a>
+                  <a href={node.data.Event_Link}>{node.data.Event}</a>
                 )}
-                {!node.data.Event_Link && <>{node.data.Event_Name}</>} -{' '}
+                {!node.data.Event_Link && <>{node.data.Event}</>} -{' '}
                 {node.data.Topic}{' '}
                 {node.data.Type === 'Conference' && (
                   <>
