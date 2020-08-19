@@ -120,6 +120,7 @@ module.exports = {
         printRejected: true, // Print removed selectors and processed file names
         develop: false, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support
+        whitelist: ['-my-5'],
         ignore: ['index.mdx'],
       },
     },
