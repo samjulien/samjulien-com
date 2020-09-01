@@ -1,6 +1,6 @@
 # SamJulien.com
 
-Hi, I'm Sam. This is the repo [my personal website](http://www.samjulien.com).
+Hi, I'm Sam. This is the repo for [my personal website](http://www.samjulien.com).
 
 This site was built using the [egghead MDX Starter](https://github.com/eggheadio/gatsby-starter-egghead-blog) for [Gatsby](https://www.gatsbyjs.org/). I'm also using [ConvertKit](https://convertkit.com/) for my email list.
 
