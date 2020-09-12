@@ -842,6 +842,9 @@ video {
   color: #1a202c;
   font-weight: 600;
   font-size: 0.875em;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: #e5e7eb;
 }
 
 .prose code::before {
@@ -1047,7 +1050,7 @@ video {
 }
 
 .prose {
-  font-family: Recursive, monospace;
+  font-family: Recursive, sans-serif;
   font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
 }
 
@@ -1065,6 +1068,10 @@ video {
 
 .prose a:hover {
   color: #10AC84;
+}
+
+.prose code::before, .prose code::after {
+  content: '';
 }
 
 .prose-sm {
@@ -2346,6 +2353,9 @@ video {
   color: #1a202c;
   font-weight: 600;
   font-size: 0.875em;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: #e5e7eb;
 }
 
 .prose code::before {
@@ -2551,7 +2561,7 @@ video {
 }
 
 .prose {
-  font-family: Recursive, monospace;
+  font-family: Recursive, sans-serif;
   font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
 }
 
@@ -2569,6 +2579,10 @@ video {
 
 .prose a:hover {
   color: #10AC84;
+}
+
+.prose code::before, .prose code::after {
+  content: '';
 }
 
 .prose-sm {
@@ -39810,8 +39824,6 @@ body {
   h3,
   h4,
   h5 {
-    /* font-family: 'Playfair Display', serif;
-    font-variation-settings: 'wght' 800; */
     font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0,
       'CRSV' 0.5;
   }
@@ -40020,6 +40032,9 @@ body {
     color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #e5e7eb;
   }
 
   .sm\:prose code::before {
@@ -40225,7 +40240,7 @@ body {
   }
 
   .sm\:prose {
-    font-family: Recursive, monospace;
+    font-family: Recursive, sans-serif;
     font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
   }
 
@@ -40243,6 +40258,10 @@ body {
 
   .sm\:prose a:hover {
     color: #10AC84;
+  }
+
+  .sm\:prose code::before, .sm\:prose code::after {
+    content: '';
   }
 
   .sm\:prose-sm {
@@ -41269,6 +41288,9 @@ body {
     color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #e5e7eb;
   }
 
   .sm\:prose code::before {
@@ -41474,7 +41496,7 @@ body {
   }
 
   .sm\:prose {
-    font-family: Recursive, monospace;
+    font-family: Recursive, sans-serif;
     font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
   }
 
@@ -41492,6 +41514,10 @@ body {
 
   .sm\:prose a:hover {
     color: #10AC84;
+  }
+
+  .sm\:prose code::before, .sm\:prose code::after {
+    content: '';
   }
 
   .sm\:prose-sm {
@@ -78868,6 +78894,9 @@ body {
     color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #e5e7eb;
   }
 
   .md\:prose code::before {
@@ -79073,7 +79102,7 @@ body {
   }
 
   .md\:prose {
-    font-family: Recursive, monospace;
+    font-family: Recursive, sans-serif;
     font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
   }
 
@@ -79091,6 +79120,10 @@ body {
 
   .md\:prose a:hover {
     color: #10AC84;
+  }
+
+  .md\:prose code::before, .md\:prose code::after {
+    content: '';
   }
 
   .md\:prose-sm {
@@ -80117,6 +80150,9 @@ body {
     color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #e5e7eb;
   }
 
   .md\:prose code::before {
@@ -80322,7 +80358,7 @@ body {
   }
 
   .md\:prose {
-    font-family: Recursive, monospace;
+    font-family: Recursive, sans-serif;
     font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
   }
 
@@ -80340,6 +80376,10 @@ body {
 
   .md\:prose a:hover {
     color: #10AC84;
+  }
+
+  .md\:prose code::before, .md\:prose code::after {
+    content: '';
   }
 
   .md\:prose-sm {
@@ -117716,6 +117756,9 @@ body {
     color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #e5e7eb;
   }
 
   .lg\:prose code::before {
@@ -117921,7 +117964,7 @@ body {
   }
 
   .lg\:prose {
-    font-family: Recursive, monospace;
+    font-family: Recursive, sans-serif;
     font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
   }
 
@@ -117939,6 +117982,10 @@ body {
 
   .lg\:prose a:hover {
     color: #10AC84;
+  }
+
+  .lg\:prose code::before, .lg\:prose code::after {
+    content: '';
   }
 
   .lg\:prose-sm {
@@ -118965,6 +119012,9 @@ body {
     color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #e5e7eb;
   }
 
   .lg\:prose code::before {
@@ -119170,7 +119220,7 @@ body {
   }
 
   .lg\:prose {
-    font-family: Recursive, monospace;
+    font-family: Recursive, sans-serif;
     font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
   }
 
@@ -119188,6 +119238,10 @@ body {
 
   .lg\:prose a:hover {
     color: #10AC84;
+  }
+
+  .lg\:prose code::before, .lg\:prose code::after {
+    content: '';
   }
 
   .lg\:prose-sm {
@@ -156564,6 +156618,9 @@ body {
     color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #e5e7eb;
   }
 
   .xl\:prose code::before {
@@ -156769,7 +156826,7 @@ body {
   }
 
   .xl\:prose {
-    font-family: Recursive, monospace;
+    font-family: Recursive, sans-serif;
     font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
   }
 
@@ -156787,6 +156844,10 @@ body {
 
   .xl\:prose a:hover {
     color: #10AC84;
+  }
+
+  .xl\:prose code::before, .xl\:prose code::after {
+    content: '';
   }
 
   .xl\:prose-sm {
@@ -157813,6 +157874,9 @@ body {
     color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #e5e7eb;
   }
 
   .xl\:prose code::before {
@@ -158018,7 +158082,7 @@ body {
   }
 
   .xl\:prose {
-    font-family: Recursive, monospace;
+    font-family: Recursive, sans-serif;
     font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
   }
 
@@ -158036,6 +158100,10 @@ body {
 
   .xl\:prose a:hover {
     color: #10AC84;
+  }
+
+  .xl\:prose code::before, .xl\:prose code::after {
+    content: '';
   }
 
   .xl\:prose-sm {
