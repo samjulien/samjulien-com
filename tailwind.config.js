@@ -15,7 +15,7 @@ module.exports = {
       default: {
         css: {
           color: theme('colors.gray.800'),
-          fontFamily: 'Recursive, monospace', // https://recursive.design
+          fontFamily: 'Recursive, sans-serif', // https://recursive.design
           fontVariationSettings:
             "'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5",
           'code, pre': {
@@ -39,6 +39,14 @@ module.exports = {
           },
           'a:hover': {
             color: theme('colors.green.500'),
+          },
+          code: {
+            padding: '2px 4px',
+            borderRadius: 3,
+            background: theme('colors.gray.200'),
+          },
+          'code::before, code::after': {
+            content: "''",
           },
         },
       },
