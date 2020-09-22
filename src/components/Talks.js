@@ -1,7 +1,5 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
 
 const labelColor = (type) => {
   let color
@@ -21,12 +19,6 @@ const labelColor = (type) => {
 const TalkType = ({ type, children }) => {
   return <label className={`${labelColor(type)} rounded p-1`}>{children}</label>
 }
-
-//   styled.label`
-//   background-color: ${(props) => labelColor(props.type)};
-//   padding: 5px;
-//   border-radius: 5px;
-// `
 
 const Talks = () => {
   const data = useStaticQuery(graphql`
