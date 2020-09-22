@@ -2,33 +2,39 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import theme from '../../config/theme'
 
 const labelColor = (type) => {
   let color
   switch (type) {
     case 'Conference':
-      color = theme.colors.lightblue
+      color = 'bg-blue-400'
       break
     case 'Podcast':
-      color = theme.colors.primary_light
+      color = 'bg-purple-100'
       break
     default:
-      color = theme.colors.gray
+      color = 'bg-gray-400'
   }
   return color
 }
 
-const TalkType = styled.label`
-  background-color: ${(props) => labelColor(props.type)};
-  padding: 5px;
-  border-radius: 5px;
-`
+const TalkType = ({ type, children }) => {
+  return <label className={`${labelColor(type)} rounded p-1`}>{children}</label>
+}
+
+//   styled.label`
+//   background-color: ${(props) => labelColor(props.type)};
+//   padding: 5px;
+//   border-radius: 5px;
+// `
 
 const Talks = () => {
   const data = useStaticQuery(graphql`
     query AirtableQuery {
-      allAirtable(sort: { fields: data___Start_Date, order: DESC }) {
+      allAirtable(
+        sort: { fields: data___Start_Date, order: DESC }
+        filter: { data: { Featured: { eq: true } } }
+      ) {
         group(field: data___Year) {
           fieldValue
           nodes {
@@ -45,6 +51,8 @@ const Talks = () => {
               Topic
               Type
               Year
+              Second_Presenter
+              Second_Presenter_Link
             }
           }
         }
@@ -61,19 +69,16 @@ const Talks = () => {
     <>
       {sortedGroups.map((group) => (
         <>
-          <h2>{group.fieldValue}</h2>
+          <h2 className="text-2xl my-4">{group.fieldValue}</h2>
           <ul>
             {group.nodes.map((node) => (
-              <li
-                css={css`
-                  list-style-type: none;
-                  margin-bottom: 20px;
-                `}
-              >
-                <strong>{node.data.Start_Date}</strong>
-                {node.data.Type === 'Conference' && (
-                  <strong> - {node.data.End_Date}</strong>
-                )}{' '}
+              <li className="list-none mb-8 last:mb-0">
+                <span className="inline-block my-2">
+                  <strong>{node.data.Start_Date}</strong>
+                  {node.data.Type === 'Conference' && (
+                    <strong> - {node.data.End_Date}</strong>
+                  )}
+                </span>{' '}
                 <TalkType type={node.data.Type}>{node.data.Type}</TalkType>
                 <br />
                 {node.data.Event_Link && (

@@ -25,7 +25,15 @@ To get started, run this command in your Gatsby repo:
 npm install --save gatsby-source-airtable
 ```
 
-Then, add API key, base ID, and table name to your `.env` file and update your `plugins` array in `gatsby.config.js`:
+Then, add API key, base ID, and table name to your `.env` file:
+
+```
+AIRTABLE_API_KEY=your_api_key
+AIRTABLE_BASE=your_base_name
+AIRTABLE_TABLE_NAME=your_table_name
+```
+
+Next, update your `plugins` array in `gatsby.config.js`:
 
 ```js
 plugins: [
