@@ -53,12 +53,12 @@ export default function Subscribe() {
       {!state.success && (
         <>
           <h2 className="text-2xl leading-tight">
-            Come hang out by the digital campfire.
+            Practical, actionable career wisdom for devs and dev advocates.
           </h2>
           <p className="text-gray-700 sm:text-xl text-base mt-4">
-            Grab a seat and let's chat about what's bringing us joy, what's
-            working, and what's not as we walk the path of being better people
-            and better developers.
+            I send helpful emails about leveling up your career in
+            development and developer relations. No BS, no hand-waving, but with
+            some fun thrown in for good measure. Beginners very welcome.
           </p>
         </>
       )}
