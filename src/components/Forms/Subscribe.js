@@ -56,9 +56,14 @@ export default function Subscribe() {
             Practical, actionable career wisdom for devs and dev advocates.
           </h2>
           <p className="text-gray-700 sm:text-xl text-base mt-4">
-            I send helpful emails about leveling up your career in
-            development and developer relations. No BS, no hand-waving, but with
-            some fun thrown in for good measure. Beginners very welcome.
+            I send helpful emails about leveling up your career in development
+            and developer relations. No BS, no hand-waving, but with some fun
+            thrown in for good measure. Beginners very welcome. Sign up and I'll
+            send you the first chapter of my book{' '}
+            <a href="http://www.gettingstartedindevrel.com" target="blank">
+              Getting Started in Developer Relations
+            </a>
+            .
           </p>
         </>
       )}
