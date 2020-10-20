@@ -1,8 +1,8 @@
 ---
-title: 'Use Single File Components By Default'
+title: 'Use Single File Components By Default in Angular'
 slug: single-file-components
 date: 2020-03-27
-date_updated: 2020-03-27
+date_updated: 2020-10-19
 ogimage: './images/og-image.png'
 tags:
   - Tech
@@ -12,14 +12,174 @@ tags:
 import Egghead from '../../../src/components/Egghead'
 import EditorEmbed from '../../../src/components/EditorEmbed'
 
-By default, the Angular CLI generates components with separate CSS and template files. It doesn't have to be this way! Let's learn how to use the CLI to generate single file components.
-
-Check out the video here:
+By default, the Angular CLI generates components with separate CSS and template files. If that works for you, great! If you don't like it, I have good news: it doesn't have to be this way! Let's learn how to use the CLI to generate single file components.
 
 <Egghead url="https://egghead.io/lessons/angular-use-single-file-components-by-default-in-angular/embed?pl=angular-basics-888f" />
 
-And here's the code:
+## Using Inline Style and Template in a Component
+
+The first opportunity to use single file components is in the component file itself. We can change `templateUrl` to `template` and `styleUrls` to `styles` to keep everything in one file:
+
+```ts
+import { Component } from '@angular/core'
+
+@Component({
+  selector: 'app-root',
+  template: `<h1>{{ title }}</h1>`,
+  styles: ['h1 { color: blue }'],
+})
+export class AppComponent {
+  title = 'egghead-angular'
+}
+```
+
+Now we can just delete the CSS file and the HTML file and we've cleaned up the `app` folder pretty significantly.
+
+## Generating Components with the Angular CLI with Inline Styles and Templates
+
+We can also use the CLI to create these single file components. If I were to run the following command to create a component with the dry run flag (`-d`):
+
+```bash
+ng generate component habit-list -d
+```
+
+I'd see the following output:
+
+```bash
+CREATE src/app/habit-list/habit-list.component.scss (0 bytes)
+CREATE src/app/habit-list/habit-list.component.html (25 bytes)
+CREATE src/app/habit-list/habit-list.component.spec.ts (650 bytes)
+CREATE src/app/habit-list/habit-list.component.ts (285 bytes)
+UPDATE src/app/app.module.ts (1104 bytes)
+
+NOTE: The "dryRun" flag means no changes were made.
+```
+
+You can see that the default output is to have a CSS file and an HTML file in addition to the spec and the component. I can change this by adding two flags to this command:
+
+```bash
+ng generate component habit-list --inline-style --inline-template -d
+```
+
+This will show us the following output:
+
+```bash
+CREATE src/app/habit-list/habit-list.component.spec.ts (650 bytes)
+CREATE src/app/habit-list/habit-list.component.ts (267 bytes)
+UPDATE src/app/app.module.ts (1104 bytes)
+
+NOTE: The "dryRun" flag means no changes were made.
+```
+
+Only a component and spec file! Let's go ahead and run that without the dry run flag to create the component:
+
+```bash
+ng generate component habit-list --inline-style --inline-template
+```
+
+You should see a `habit-list` folder with just the component and the spec. If you open up that component, you can see the inline template and styles:
+
+```ts
+import { Component, OnInit } from '@angular/core'
+
+@Component({
+  selector: 'app-habit-list',
+  template: `
+    <p>
+      habit-list works!
+    </p>
+  `,
+  styles: [],
+})
+export class HabitListComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
+}
+```
+
+## Generating Single File Components with the Angular CLI By Default
+
+We can actually go one step further though and make this the default behavior of the component schematic. If we open up `angular.json`, which is the JSON file that configures the Angular CLI, there's a section here for `schematics` that lets you override the defaults. If we create a `@schematics/angular:component` key there, we can set the default values we want for the command flags:
+
+```json
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "demo": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineStyle": true,
+          "inlineTemplate": true
+        }
+      },
+      `...
+    }
+  }
+}
+```
+
+If you're using the [Angular Essentials VS Code extensions](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials), you should be able to just type "component" and get intellisense for the key so you don't have to remember it.
+
+Let's run another dry run command to generate a new component, this time using the alias `ng g c`:
+
+```bash
+ng g c habit-detail -d
+```
+
+You can see that now the default is just to create the component and the spec:
+
+```bash
+CREATE src/app/habit-detail/habit-detail.component.spec.ts (650 bytes)
+CREATE src/app/habit-detail/habit-detail.component.ts (267 bytes)
+UPDATE src/app/app.module.ts (1104 bytes)
+
+NOTE: The "dryRun" flag means no changes were made.
+```
+
+Let's run that without the dry run flag. You should now see now a `habit-detail` folder with just the component and the spec. If you open up the component, you can see we now just have the template and the styles inline:
+
+```ts
+import { Component, OnInit } from '@angular/core'
+
+@Component({
+  selector: 'app-habit-detail',
+  template: `
+    <p>
+      habit-detail works!
+    </p>
+  `,
+  styles: [],
+})
+export class HabitDetailComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
+}
+```
+
+That's it! Here's the final code:
 
 <EditorEmbed url="https://stackblitz.com/edit/egghead-single-file-components?embed=1&file=angular.json&view=editor" />
 
-Got other ideas for the Angular basics collection? Something you're struggling with? Reach out [on Twitter ](https://twitter.com/samjulien) any time.
+## Where to Go Next
+
+Single file components in Angular are a matter of personal preference. I prefer to have only one file I have to keep track of and a lot of small components rather than several big components. I do this by default anytime I set up a new Angular project. If you prefer the standard way with separate files, that's totally fine. The most important thing is that your team does it consistently in a repo!
+
+Here are some other Angular basics lessons you might like:
+
+- [Setting up a Proxy in Angular](/proxy-angular-cli-cors)
+- [How to Add Routing to an Existing Angular Project](/add-routing-existing-angular-project)
+- [Scoped and Global Styles in Angular](/angular-styling)
+
+Got other ideas for the Angular basics collection? Something you're struggling with? Reach out [on Twitter](https://twitter.com/samjulien) any time.
+
+If you're trying to level up your developer career through writing and speaking or hoping to become a developer advocate, hop on my email newsletter below and check out my book [Getting Started in Developer Relations](http://www.gettingstartedindevrel.com).
+
+See you next soon!
