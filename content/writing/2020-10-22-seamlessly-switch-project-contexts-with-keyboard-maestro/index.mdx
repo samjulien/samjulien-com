@@ -1,0 +1,69 @@
+---
+title: 'Seamlessly Switch Project Contexts with Keyboard Maestro'
+slug: 'seamlessly-switch-project-contexts-with-keyboard-maestro'
+description: 'Switching project contexts causes needless friction and opportunities for distraction as we try to pull up related tabs and applications. We can use Keyboard Maestro to create palettes of shortcuts grouped by context.'
+date: '2020-10-22'
+date_updated: '2020-10-22'
+ogimage: './images/og-switch-contexts-keyboard-maestro.png'
+published: true
+tags:
+  - Tech
+---
+
+import Egghead from 'components/Egghead'
+
+Switching project contexts causes needless friction and opportunities for distraction as we try to pull up related tabs and applications. I learned a trick from [David Sparks](https://www.macsparky.com/) on how to use the Mac automation software [Keyboard Maestro](https://www.keyboardmaestro.com/main/) to create palettes of shortcuts grouped by context. I already love Keyboard Maestro and [use it to automate my screencasting workflow](/automating-screencasting).
+
+I have palettes set up for Work, Business, and Personal. For example, I can hit an Option-Control-Command-B to bring up a bunch of links related to my site business. Keyboard Maestro highlights the letters in blue, and I can start typing S and then T to launch the "Stacking the Bricks" podcast.
+
+These context palettes have been an awesome boost to my productivity! Let me show you how to create one of these yourself. Here's the video:
+
+<Egghead url="https://egghead.io/lessons/mac-seamlessly-switch-project-contexts-with-keyboard-maestro/embed?pl=angular-basics-888f" />
+
+## Set Up the Group in Keyboard Maestro
+
+First, launch Keyboard Maestro. Create a new group and call it "Context: Development."
+
+Let's say that you're working on a project with [MongoDB](https://www.mongodb.com/) and you're tired of getting distracted by having to hunt around for different links and repos to open.
+
+Let's create our first macro in this group and call it "Mongo Docs."
+
+The most important part of this process is that we need to give each of these macros the same keyboard trigger. Keyboard Maestro will try to match the keyboard trigger to a macro but see multiple options and show you a palette for you to choose from.
+
+Give this a trigger a Hot Key of Control-Option-Command-D.
+
+Now we need to give this an action. Click on New Action and drag over the "Open a URL" action. Let's make this the link to the [MongoDB Docs](http://docs.mongodb.com):
+
+```
+http://docs.mongodb.com
+```
+
+The first macro is done!
+
+Now, let's duplicate it and change the name to "Mongo Atlas" and the URL to that of [MongoDB Atlas](http://cloud.mongodb.com):
+
+```
+http://cloud.mongodb.com
+```
+
+Lastly, create another macro that's going to open up a repo in Visual Studio Code. I called mine "Zelda Mongo Repo," Give it a new Hot Key trigger and make sure this key is the same as the others (Control-Option-Command-D).
+
+Give it a new action, but instead of "Open URL,"" use the "Open a File, Folder, or Application" action. Click the little folder icon, find the folder for your repo, and select it. Next, click the application menu set that to Code.
+
+Another neat thing we can do is resize the window. Come back over to the Actions menu and use the "Move a Window" action. Then click on "Move" to choose "Move and Resize" and set it to "Full Screen."
+
+## Testing the Conflict Palette in Keyboard Maestro
+
+That's all we need to do to create our palette. Let's see it in action. Press Control-Option-Command-D, start typing M for Mongo, then A for Atlas, and you'll see MongoDB Atlas come up.
+
+Press Control-Option-Command-D, type M and then D for Docs, and you'll see the MongoDB docs open.
+
+Finally, press Control-Option-Command-D and then Z for the repo, and you can see that it's made it full screen.
+
+Now you don't need to fumble around looking up bookmarks or getting distracted by other sites or repos. You can just navigate to exactly what you want when it's time to work on a project.
+
+Got any Mac automation tips you'd like to share or special requests? [Reach out to me on Twitter](https://twitter.com/samjulien) to let me know.
+
+If you're trying to level up your developer career through writing and speaking or hoping to become a developer advocate, hop on my email newsletter below and check out my book [Getting Started in Developer Relations](http://www.gettingstartedindevrel.com).
+
+See you next time!
