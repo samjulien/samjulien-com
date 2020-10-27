@@ -4,7 +4,7 @@ module.exports = {
   siteTitleAlt:
     'Sam Julien: Full Stack JavaScript Teacher and Your Biggest Fan', // Alternative Site title for SEO
   siteTitleShort: 'Sam Julien', // short_name for manifest
-  siteUrl: 'http://www.samjulien.com', // Domain of your site. No trailing slash!
+  siteUrl: 'https://www.samjulien.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: 'images/ogimage-logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
   siteDescription:
