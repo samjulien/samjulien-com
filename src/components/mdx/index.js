@@ -3,13 +3,15 @@ import Title from './Title'
 import Subtitle from './Subtitle'
 import Paragraph from './Paragraph'
 import Code from './Code'
+import CustomLink from './CustomLink'
 
 export default {
-  h1: props => <Title {...props} />,
-  h2: props => <Subtitle {...props} />,
-  p: props => <Paragraph {...props} />,
+  h1: (props) => <Title {...props} />,
+  h2: (props) => <Subtitle {...props} />,
+  p: (props) => <Paragraph {...props} />,
+  a: CustomLink,
   code: Code,
-  pre: preProps => {
+  pre: (preProps) => {
     const props = preToCodeBlock(preProps)
     // if there's a codeString and some props, we passed the test
     if (props) {
