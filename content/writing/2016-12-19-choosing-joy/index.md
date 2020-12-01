@@ -5,7 +5,7 @@ date: 2016-12-19T20:37:50.000Z
 date_updated:   2017-05-22T23:08:11.000Z
 banner: './images/rejoice.jpg'
 published: true
-pinned: true
+pinned: false
 tags: 
 - Becoming Awesome
 ---

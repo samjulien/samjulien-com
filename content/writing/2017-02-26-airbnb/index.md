@@ -4,7 +4,7 @@ slug: airbnb
 date: 2017-02-26T21:54:03.000Z
 date_updated:   2017-05-22T23:07:42.000Z
 published: true
-pinned: true
+pinned: false
 banner: './images/camping-mug.jpg'
 tags: 
 - Becoming Awesome

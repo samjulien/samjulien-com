@@ -45,6 +45,10 @@ module.exports = {
             borderRadius: 3,
             background: theme('colors.gray.200'),
           },
+          img: {
+            marginTop: 0,
+            marginBottom: 0,
+          },
           'code::before, code::after': {
             content: "''",
           },

@@ -3,7 +3,7 @@ title: Where (Else) to Find My Technical Writing
 slug: where-to-find-my-tech-writing
 date: 2018-12-31T19:28:01.000Z
 date_updated:   2018-12-31T19:28:01.000Z
-pinned: true
+pinned: false
 tags:
 - tech
 ---
