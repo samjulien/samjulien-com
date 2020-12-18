@@ -19,7 +19,7 @@ slug: "$SLUG"
 description: ''
 date: "$DATE"
 date_updated: "$DATE"
-ogimage: ''
+ogimage: "images/og-$SLUG.png"
 published: true
 tags:
   - Tech
