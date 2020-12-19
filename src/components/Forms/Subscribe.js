@@ -39,6 +39,7 @@ export default function Subscribe() {
           success: true,
           errorMessage: null,
         })
+        window.fathom.trackGoal('IACNIPCU', 0)
       }
     } catch (error) {
       setState({
