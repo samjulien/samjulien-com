@@ -13,6 +13,12 @@ export default class HTML extends React.Component {
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
           {this.props.headComponents}
+          <script
+            src="https://cdn.usefathom.com/script.js"
+            data-spa="auto"
+            data-site="SIYTBEQN"
+            defer
+          ></script>
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
