@@ -9,7 +9,7 @@ const Footer = ({ author, noSubscribeForm }) => (
     <Container>
       {!noSubscribeForm && <SubscribeForm />}
       <div className="flex items-center justify-between mt-20">
-        <div>{author && `${author} \u00A9 ${new Date().getFullYear()}`}</div>
+        <div>{author && `${author} \u00A9 2015 - Present`}</div>
         <div className="flex items-center">
           <Twitter />
           <GitHub />
