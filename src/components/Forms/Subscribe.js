@@ -57,14 +57,13 @@ export default function Subscribe() {
             Subscribe to the Developer Microskills Newsletter
           </h2>
           <p className="text-gray-700 sm:text-xl text-base mt-4">
-            Practical, actionable ways to improve as a dev and dev advocate. No
-            BS, no hand-waving, but with some fun thrown in for good measure.
-            Beginners very welcome. Sign up and I'll send you the first chapter
-            of my book{' '}
-            <a href="http://www.gettingstartedindevrel.com" target="blank">
-              Getting Started in Developer Relations
-            </a>
-            .
+            Each week I send a practical, actionable way to improve as a dev and
+            dev advocate. No BS, no hand-waving, but with some fun thrown in for
+            good measure. Sign up and I'll send you the{' '}
+            <span className="font-bold">
+              Tiny Experiments framework and worksheet
+            </span>
+            . It's a simple process to help you finish what you start.
           </p>
         </>
       )}
