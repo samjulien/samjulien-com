@@ -2,6 +2,7 @@ import React from 'react'
 import devRelImg from '../images/devrel-crop.jpg'
 import upgradeImg from '../images/upgrade.png'
 import angularImg from '../images/angular_solidBlack.png'
+import gatsbyImg from '../images/gatsby_logo_tiny.png'
 
 const TeachingCards = () => {
   return (
@@ -16,6 +17,12 @@ const TeachingCards = () => {
         imgSrc={upgradeImg}
         text="Upgrading AngularJS"
         link="https://www.upgradingangularjs.com/"
+        linkText="Get the course"
+      />
+      <Card
+        imgSrc={gatsbyImg}
+        text="Up and Running with Gatsby"
+        link="https://learn.samjulien.com/up-and-running-with-gatsby"
         linkText="Get the course"
       />
       <Card

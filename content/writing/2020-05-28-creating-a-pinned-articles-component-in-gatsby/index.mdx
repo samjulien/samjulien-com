@@ -10,6 +10,10 @@ tags:
   - Tech
 ---
 
+import GatsbyBanner from '../../../src/components/GatsbyBanner'
+
+<GatsbyBanner />
+
 I wanted an easy way to pin articles to the front page of my website. It turns out Gatsby and GraphiQL make this process much easier than you'd think!
 
 First, I added a new `pinned` field to the frontmatter of the articles I wanted to put on the front page and set it equal to `true`. Frontmatter fields are great for splicing, dicing, and sorting your content however you'd like.
@@ -73,7 +77,7 @@ const PinnedArticles = () => {
 
   return (
     <ul>
-      {data.allMdx.edges.map(edge => (
+      {data.allMdx.edges.map((edge) => (
         <li key={edge.node.id}>
           <Link to={`/${edge.node.fields.slug}`}>{edge.node.fields.title}</Link>
         </li>
@@ -98,5 +102,3 @@ These are what I'd considered my "foundational articles." They reflect some of t
 ```
 
 And that's it! Now any time I want to pin a new article to the front page, I just set that frontmatter field and I'm on my way.
-
-If you like these Gatsby tips, hop on to my newsletter below. If you're new to Gatsby and want to get started from scratch, check out my Thinkster course [Up and Running with Gatsby](https://thinkster.io/tutorials/up-and-running-with-gatsby-intro).
