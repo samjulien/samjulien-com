@@ -7,8 +7,8 @@ const GuideBanner = () => {
       <span role="img" aria-label="wave emoji">
         👋
       </span>{' '}
-      People loved this article so much that I decided to expand it into an
-      ebook! You can pre-order the Developer Microskills{' '}
+      This article has been revised and expanded as a chapter of the Developer
+      Microskills{' '}
       <span class="font-bold">
         <a
           href="https://learn.samjulien.com/guide-to-tiny-experiments"
@@ -17,8 +17,8 @@ const GuideBanner = () => {
         >
           Guide to Tiny Experiments
         </a>
-      </span>{' '}
-      today.{' '}
+      </span>
+      . It's available as an ebook and audio book!{' '}
       <span role="img" aria-label="tada emoji">
         🎉
       </span>

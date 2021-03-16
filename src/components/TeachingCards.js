@@ -3,10 +3,17 @@ import devRelImg from '../images/devrel-crop.jpg'
 import upgradeImg from '../images/upgrade.png'
 import angularImg from '../images/angular_solidBlack.png'
 import gatsbyImg from '../images/gatsby_logo_tiny.png'
+import gteImg from '../images/gte-cover.jpg'
 
 const TeachingCards = () => {
   return (
     <div className="grid grid-cols-3 space-x-4 space-y-4">
+      <Card
+        imgSrc={gteImg}
+        text="Guide to Tiny Experiments"
+        link="https://learn.samjulien.com/guide-to-tiny-experiments"
+        linkText="Get the book + audio"
+      />
       <Card
         imgSrc={devRelImg}
         text="Getting Started in Developer Relations"

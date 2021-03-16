@@ -54,12 +54,13 @@ export default function Subscribe() {
       {!state.success && (
         <>
           <h2 className="text-2xl lg:text-3xl leading-tight" id="subscribe">
-            Subscribe to the Developer Microskills Newsletter
+            Practical, actionable ways to improve each week.
           </h2>
           <p className="text-gray-700 sm:text-xl text-base mt-4">
-            Each week I send a practical, actionable way to improve as a dev and
-            dev advocate. No BS, no hand-waving, but with some fun thrown in for
-            good measure. Sign up and I'll send you the{' '}
+            Join 1150+ other devs and dev advocates on the Developer Microskills
+            newsletter. Each week, I send out a practical, actionable way to
+            grow in your career. No BS, no hand-waving, but with some fun thrown
+            in for good measure. Sign up and I'll send you the{' '}
             <span className="font-bold">
               Tiny Experiments framework and worksheet
             </span>
