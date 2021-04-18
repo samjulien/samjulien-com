@@ -4,7 +4,6 @@ slug: altucher-lessons
 date: 2017-11-03T14:44:05.000Z
 date_updated: 2017-11-03T14:44:05.000Z
 banner: './images/businesscat.jpg'
-pinned: true
 published: true
 tags:
 - Becoming Awesome
