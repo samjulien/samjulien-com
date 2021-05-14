@@ -26,7 +26,32 @@ tags:
 ---
 frontmatter
 
+  ENCODED="$(urlencode "$TITLE")"
+
+  wget -P ${NEW_POST_FOLDER}/images https://res.cloudinary.com/samjulien/image/upload/g_north_west,x_60,y_60,l_text:Inter-Black.ttf_64:${ENCODED}/og-template.png
+
+  mv "${NEW_POST_FOLDER}/images/og-template.png" "${NEW_POST_FOLDER}/images/og-${SLUG}.png"
+
   echo "New post created"
   code $GATSBY_ROOT
   code $NEW_POST_FILE
+}
+
+# https://gist.github.com/cdown/1163649
+urlencode() {
+    # urlencode <string>
+
+    old_lc_collate=$LC_COLLATE
+    LC_COLLATE=C
+
+    local length="${#1}"
+    for (( i = 0; i < length; i++ )); do
+        local c="${1:$i:1}"
+        case $c in
+            [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
+            *) printf '%%%02X' "'$c" ;;
+        esac
+    done
+
+    LC_COLLATE=$old_lc_collate
 }
