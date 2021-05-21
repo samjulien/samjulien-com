@@ -57,7 +57,7 @@ export default function Subscribe() {
             Practical, actionable ways to improve each week.
           </h2>
           <p className="text-gray-700 sm:text-xl text-base mt-4">
-            Join 1270+ other devs and dev advocates on the Developer Microskills
+            Join 1380+ other devs and dev advocates on the Developer Microskills
             newsletter. Each week, I send out a practical, actionable way to
             grow in your career. No BS, no hand-waving, but with some fun thrown
             in for good measure. Sign up and I'll send you the{' '}
