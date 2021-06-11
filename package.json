@@ -63,13 +63,13 @@
     "yup": "^0.29.2"
   },
   "devDependencies": {
-    "babel-preset-gatsby": "^0.5.4",
-    "prettier": "2.0.5",
-    "tailwindcss": "^1.6.0",
     "autoprefixer": "^9.8.6",
+    "babel-preset-gatsby": "^0.5.4",
     "gatsby-plugin-purgecss": "^5.0.0",
     "postcss-cli": "^7.1.1",
-    "postcss-nested": "^4.2.3"
+    "postcss-nested": "^4.2.3",
+    "prettier": "^2.3.1",
+    "tailwindcss": "^1.6.0"
   },
   "keywords": [
     "gatsby"

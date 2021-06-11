@@ -28,7 +28,7 @@ frontmatter
 
   ENCODED="$(urlencode "$TITLE")"
 
-  wget -P ${NEW_POST_FOLDER}/images https://res.cloudinary.com/samjulien/image/upload/g_north_west,x_60,y_60,l_text:Inter-Black.ttf_64:${ENCODED}/og-template.png
+  wget -P ${NEW_POST_FOLDER}/images https://res.cloudinary.com/samjulien/image/upload/w_989,c_fit,g_north_west,x_60,y_60,l_text:Inter-Black.ttf_64:${ENCODED}/og-template.png
 
   mv "${NEW_POST_FOLDER}/images/og-template.png" "${NEW_POST_FOLDER}/images/og-${SLUG}.png"
 
