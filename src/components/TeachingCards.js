@@ -4,6 +4,7 @@ import upgradeImg from '../images/upgrade.png'
 import angularImg from '../images/angular_solidBlack.png'
 import gatsbyImg from '../images/gatsby_logo_tiny.png'
 import gteImg from '../images/gte-cover.jpg'
+import ghostImg from '../images/ghost-course.png'
 
 const TeachingCards = () => {
   return (
@@ -21,6 +22,18 @@ const TeachingCards = () => {
         linkText="Get the book"
       />
       <Card
+        imgSrc={ghostImg}
+        text="Deploy Ghost to AWS"
+        link="https://egghead.io/courses/deploy-ghost-to-aws-using-rds-and-ec2-a3487caa"
+        linkText="Watch on egghead"
+      />
+      <Card
+        imgSrc={angularImg}
+        text="Angular Basics"
+        link="https://egghead.io/playlists/angular-basics-888f?af=6zxcwn"
+        linkText="Watch on egghead"
+      />
+      <Card
         imgSrc={upgradeImg}
         text="Upgrading AngularJS"
         link="https://www.upgradingangularjs.com/"
@@ -31,12 +44,6 @@ const TeachingCards = () => {
         text="Up and Running with Gatsby"
         link="https://learn.samjulien.com/up-and-running-with-gatsby"
         linkText="Get the course"
-      />
-      <Card
-        imgSrc={angularImg}
-        text="Angular Basics"
-        link="https://egghead.io/playlists/angular-basics-888f?af=6zxcwn"
-        linkText="Watch on egghead"
       />
     </div>
   )

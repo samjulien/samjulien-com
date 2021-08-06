@@ -6,7 +6,7 @@ const RecentArticles = () => {
     query {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 5
+        limit: 10
         filter: {
           frontmatter: { published: { ne: false } }
           fileAbsolutePath: { regex: "//content/writing//" }
@@ -28,7 +28,7 @@ const RecentArticles = () => {
 
   return (
     <ul>
-      {data.allMdx.edges.map(edge => (
+      {data.allMdx.edges.map((edge) => (
         <li key={edge.node.id}>
           {edge.node.fields.date} -{' '}
           <Link to={`/${edge.node.fields.slug}`}>{edge.node.fields.title}</Link>
