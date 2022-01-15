@@ -2,7 +2,6 @@ import React from 'react'
 import devRelImg from '../images/devrel-crop.jpg'
 import upgradeImg from '../images/upgrade.png'
 import angularImg from '../images/angular_solidBlack.png'
-import gatsbyImg from '../images/gatsby_logo_tiny.png'
 import gteImg from '../images/gte-cover.jpg'
 import ghostImg from '../images/ghost-course.png'
 import cloudImg from '../images/cloud-infrastructure.png'
@@ -46,12 +45,6 @@ const TeachingCards = () => {
         link="https://www.upgradingangularjs.com/"
         linkText="Get the course"
       />
-      {/* <Card
-        imgSrc={gatsbyImg}
-        text="Up and Running with Gatsby"
-        link="https://learn.samjulien.com/up-and-running-with-gatsby"
-        linkText="Get the course"
-      /> */}
     </div>
   )
 }

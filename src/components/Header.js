@@ -19,7 +19,7 @@ const Header = ({ siteTitle }) => {
               Writing
             </Link>
             <Link to="/talks" className="">
-              {isMobile ? 'Talks' : 'JavaScript Talks & Interviews'}
+              {isMobile ? 'Talks' : 'Talks & Interviews'}
             </Link>
           </div>
         </nav>

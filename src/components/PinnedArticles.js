@@ -5,7 +5,7 @@ const PinnedArticles = () => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___date], order: ASC }
         limit: 20
         filter: {
           frontmatter: { published: { ne: false }, pinned: { eq: true } }

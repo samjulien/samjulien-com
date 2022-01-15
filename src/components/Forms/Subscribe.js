@@ -54,18 +54,22 @@ export default function Subscribe() {
       {!state.success && (
         <>
           <h2 className="text-2xl lg:text-3xl leading-tight" id="subscribe">
-            Practical, actionable ways to improve each week.
+            Project list gathering dust? 👀
           </h2>
           <p className="text-gray-700 sm:text-xl text-base mt-4">
-            Join over <span className="font-bold">1770</span> other devs and dev
-            advocates on the Developer Microskills newsletter. Each week, I send
-            out a practical, actionable way to grow in your career. No BS, no
-            hand-waving, but with some fun thrown in for good measure. Sign up
-            and I'll send you the{' '}
+            Drop me a line below so I can send you the{' '}
             <span className="font-bold">
               Tiny Experiments framework and worksheet
             </span>
-            . It's a simple process to help you finish what you start.
+            . It's a simple process to help you finish what you start. You'll
+            also join over <span className="font-bold">1770</span> other devs
+            and dev advocates on the{' '}
+            <span className="font-bold">Developer Microskills</span> newsletter.
+            In each issue of Developer Microskills, I share a practical,
+            actionable way to grow in your career or be more effective in your
+            work. No motivational speeches, no hand-waving, and no spam, but
+            also no infuriating sense of self-importance that plagues so much
+            career and productivity advice out there.
           </p>
         </>
       )}
