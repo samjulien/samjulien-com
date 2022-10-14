@@ -62,7 +62,7 @@ export default function Subscribe() {
               Tiny Experiments framework and worksheet
             </span>
             . It's a simple process to help you finish what you start. You'll
-            also join over <span className="font-bold">1770</span> other devs
+            also join over <span className="font-bold">2100</span> other devs
             and dev advocates on the{' '}
             <span className="font-bold">Developer Microskills</span> newsletter.
             In each issue of Developer Microskills, I share a practical,
