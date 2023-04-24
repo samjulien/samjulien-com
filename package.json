@@ -46,7 +46,7 @@
     "gatsby-remark-images": "^3.3.23",
     "gatsby-source-airtable": "^2.1.1",
     "gatsby-source-filesystem": "^2.3.23",
-    "gatsby-transformer-remark": "^2.8.27",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.5.12",
     "prism-react-renderer": "^1.1.1",
     "prism-themes": "^1.4.0",
