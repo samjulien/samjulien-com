@@ -1,0 +1,119 @@
+---
+title: "Getting Started with AI for Developers"
+slug: "getting-started-with-ai-for-developers"
+description: ''
+date: "2024-12-23"
+date_updated: "2024-12-23"
+ogimage: "images/og-getting-started-with-ai-for-developers.png"
+published: true
+tags:
+  - AI
+---
+When I first started to learn about AI engineering in October of 2023, I was overwhelmed with jargon, academic papers, and more acronyms than I could handle. NLP? RAG? LLMs? DPO? RLHF? My head was spinning constantly. I looked around for resources targeted at web developers new to AI, but couldn't find what I wanted. I needed someone to orient me to the landscape, give me a map, and help me figure out which direction to go. Instead, I just kept finding a bunch of Machine Learning resources and more confusion.
+
+I've been a friend and follower of Shawn Wang ([swyx](https://swyx.io/)) since his frontend days, so I started with his work on [Latent Space](https://www.latent.space/) and [The Rise of the AI Engineer](https://www.latent.space/p/ai-engineer). Eventually, I found my way around and learned enough to join [Writer](https://www.writer.com), an enterprise AI platform, as their Director of Developer Relations in spring 2024. It wasn't easy though, and I could have really used a practical, high-level guide to help me understand the landscape and get started.
+
+So, as is my custom, whether with [Developer Relations](http://www.gettingstartedindevrel.com), [AWS](https://www.samjulien.com/where-to-start-with-aws-as-a-developer), or [Obsidian](https://www.samjulien.com/get-started-with-obsidian-as-a-developer), I'm creating the article I wished existed when I was getting started.
+
+In this article, I'll break down my experience into high-level principles to approach the world of AI engineering and then practical strategies for getting started. As always, this is based on my experience - take what works for you and adapt it to your needs!
+
+
+## Principles for understanding AI engineering
+
+### Principle 1: AI is not just hype
+Like many developers, I was initially skeptical of AI &mdash; we've all seen enough hype cycles in tech to develop a healthy dose of cynicism. But AI is not just hype &mdash; it's based on decades of research, and it stands to literally revolutionize our entire society. 
+
+It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted developers around the world to make a difference in their own community.
+
+In his influential talk ["Opportunities in AI"](https://www.youtube.com/watch?v=5p248yoa3oE), Andrew Ng emphasizes that the current AI revolution is built on decades of research finally reaching practical application.
+
+At Writer, I see this every day - companies using LLMs to automate product descriptions across different retail sites, each with their own specific requirements. It's not flashy, but it saves enormous amounts of time and reduces errors. This immediate practical value is why AI has become the fastest-adopted new technology I've ever seen.
+
+For those interested in diving deeper, I highly recommend checking out [DeepLearning.AI's short courses](https://www.deeplearning.ai/short-courses/), which provide an excellent foundation in these concepts.
+
+### Principle 2: The scale of possibility has fundamentally changed
+
+Remember building applications that pull in data and display it for analysis? Now you can generate that code using LLMs and then feed the data right back into them for automated analysis. The scale at which we can develop has radically changed. Junior developers actually have an advantage here because they don't have any preconceptions about what's possible.
+
+This shift is part of what Shawn calls ["The Rise of the AI Engineer"](https://www.latent.space/p/ai-engineer) - a fundamental change in how we approach development. 
+
+The industry is experiencing four major "wars" that are shaping its future:
+- The Data War (who owns and controls training data)
+- The GPU/Inference War (how we process and run models efficiently)
+- The Multimodality War (competition in different types of AI like image and speech)
+- The RAG/Ops War (how we build and deploy AI applications)
+
+Understanding these battles helps you see where the opportunities lie for developers.
+
+### Principle 3: Traditional development work will evolve, not disappear
+
+Will AI replace developers? That's certainly the stated goal of several companies. But having worked directly with enterprise AI tools, I can tell you we're heading toward a transformation rather than a replacement. We might not need developers to generate UIs in a few years, but we'll absolutely need people who can orchestrate AI tools, review AI-generated code, and design complex systems.
+
+This evolution is particularly evident in the open-source AI community. Companies like Meta are releasing powerful open-source models through Hugging Face, while companies like Writer are building enterprise-grade solutions that combine proprietary models with sophisticated guardrails and RAG implementations.
+
+## Strategies for Navigating the AI Shift
+
+### Strategy 1: Focus on key skills for AI engineering
+
+The most immediate opportunity isn't in building models - it's in combining existing AI tools effectively. I see successful AI engineers spending more time on:
+- Integrating AI capabilities into existing applications
+- Designing prompt strategies
+- Implementing RAG (Retrieval Augmented Generation)
+- Building systems that combine multiple AI tools
+
+A great way to start is with tools like:
+- [LangChain](https://learn.deeplearning.ai/courses/langchain/lesson/4/chains) or LlamaIndex for building AI applications
+- Vector databases like Weaviate or Pinecone for implementing RAG
+- Enterprise platforms for accessing production-ready models
+
+### Strategy 2: Learn the fundamentals of AI interaction
+
+You don't need a deep ML background, but you do need to understand:
+- How to work with LLMs effectively
+- Basic prompt engineering principles
+- How to integrate AI APIs and SDKs
+- When to use AI and when not to
+
+I learned this the hard way - I initially thought I needed to dive deep into machine learning research, but what actually proved valuable was understanding how to effectively use and combine AI tools.
+
+For those just starting out, I recommend this learning path:
+1. Start with [DeepLearning.AI's "Generative AI for Everyone"](https://www.coursera.org/learn/generative-ai-for-everyone/home/week/1) course
+2. Move on to practical implementation with Scrimba's AI Engineering path
+3. Experiment with basic RAG implementations using [LangChain](https://learn.deeplearning.ai/courses/langchain/lesson/4/chains)
+4. Join communities like [Latent Space](https://www.latent.space/) to stay current
+
+Don't feel pressured to learn Python immediately - many tools now offer JavaScript/TypeScript SDKs. I learned Python gradually as needed, using AI tools themselves to help with the transition.
+
+### Strategy 3: Build projects that combine traditional development with AI
+
+The real magic happens when you combine solid development practices with AI capabilities. Some practical examples I've seen:
+- Using AI to generate product descriptions while maintaining brand voice
+- Building RAG systems that can reference company-specific documentation
+- Creating AI-powered code review tools
+- Developing intelligent data analysis pipelines
+
+### Strategy 4: Stay pragmatic about AI's capabilities
+
+I use Perplexity AI daily for research, and I've seen how powerful these tools can be. But I've also seen their limitations. The key is understanding both:
+- What AI can do well (code generation, data analysis, content creation)
+- What still needs human oversight (system architecture, user experience, business logic)
+
+## The Path Forward
+
+Nobody knows exactly how fast AI will transform development - I've heard predictions ranging from "we've got a decade" to "AI agents will change everything within a year." The reality is probably somewhere in between, but the direction is clear.
+
+Here's what I recommend focusing on:
+1. Get comfortable with AI tools - they're becoming as fundamental as learning a new programming language
+2. Build your orchestration skills - the ability to combine different AI tools effectively is increasingly valuable
+3. Maintain your engineering judgment - AI can generate code, but understanding architecture and user needs remains crucial
+4. Stay curious but practical - focus on solving real problems rather than chasing the latest AI trend
+
+## Staying Current in AI
+
+One of the biggest challenges in AI engineering is keeping up with the rapid pace of change. Here's my current information diet:
+- **Newsletters**: [Latent Space](https://www.latent.space/) by swyx & Alessio, [ThursdAI](https://sub.thursdai.news/) by Alex Volkov
+- **Courses**: [DeepLearning.AI's short courses](https://www.deeplearning.ai/short-courses/), especially their LangChain and Vector Database series
+- **Communities**: The Latent Space Discord, Hugging Face forums
+- **GitHub**: Following [swyxio/ai-notes](https://github.com/swyxio/ai-notes) for curated resources
+
+Remember, you don't need to know everything. Focus on understanding the fundamentals and keeping an eye on major developments that affect your work directly. The developers who will thrive aren't necessarily the ones who know the most about machine learning theory - they're the ones who can effectively combine AI capabilities with solid engineering principles to solve real problems.

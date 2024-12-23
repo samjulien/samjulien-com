@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/bin/zsh
 # Gatsby post creator
 new_post() {
+  echo "Creating new post"
   GATSBY_ROOT=~/Dev/samjulien-com
   GATSBY_POSTS=$GATSBY_ROOT/content/writing
   TITLE=$1
@@ -33,8 +34,8 @@ frontmatter
   mv "${NEW_POST_FOLDER}/images/og-template.png" "${NEW_POST_FOLDER}/images/og-${SLUG}.png"
 
   echo "New post created"
-  code $GATSBY_ROOT
-  code $NEW_POST_FILE
+  cursor $GATSBY_ROOT
+  cursor $NEW_POST_FILE
 }
 
 # https://gist.github.com/cdown/1163649
@@ -55,3 +56,5 @@ urlencode() {
 
     LC_COLLATE=$old_lc_collate
 }
+
+new_post "$1"
